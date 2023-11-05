@@ -1,0 +1,17 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-www-ad-images {
+}
+
+.wp-block-www-ad-images-controls {
+	.media-controls {
+		padding: 1em;
+	}
+	.components-placeholder.components-placeholder {
+		min-height: initial;
+	}
+}

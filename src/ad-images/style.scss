@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-www-ad-images {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.ad-desktop-only {
+		display: none;
+	}
+
+	@media (min-width: 480px) {
+		.ad-mobile-only {
+			display: none;
+		}
+		.ad-desktop-only {
+			display: block;
+		}
+	}
+}
