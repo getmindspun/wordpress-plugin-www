@@ -1,0 +1,24 @@
+@import "variables";
+
+.ad-btn {
+	text-align: center;
+	text-decoration: none;
+	padding: 1em 2em;
+	color: white !important;
+	border-radius: 5px;
+}
+
+.ad-btn:hover {
+	filter: brightness(1.15);
+}
+
+.ad-btn:focus {
+	text-decoration: none;
+}
+
+.ad-btn-primary {
+	background-color: $cyan;
+}
+
+.ad-btn-link {
+}

@@ -1,19 +1,19 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/_template",
+	"name": "www/_template",
 	"version": "0.1.0",
 	"title": "Src Template",
-	"category": "widgets",
-	"icon": "smiley",
+	"category": "ads",
+	"icon": "hammer",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "src/_template",
+	"textdomain": "www",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
 	"viewScript": "file:./view.js"
 }

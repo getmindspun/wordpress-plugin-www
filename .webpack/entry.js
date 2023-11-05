@@ -7,7 +7,7 @@ function handleIndex(entry, parent, dirent) {
 	if (!entry[dirent.name]) {
         for (const suffix of SUFFIXES) {
             const indexPath = path.join(parent, dirent.name, 'index' + suffix);
-            if (fs.existsSync(indexPath)) {
+			if (fs.existsSync(indexPath)) {
                 entry[dirent.name] = './src/' + dirent.name + '/index' + suffix;
                 return;
             }

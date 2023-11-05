@@ -1,0 +1,59 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@import "../_common/scss/variables";
+@import "../_common/scss/btn";
+
+.wp-block-www-ad-inline {
+	border-radius: 5px;
+	background-color: #005ffe;
+	color: #fff;
+
+	padding: 1em;
+	display: flex;
+
+	.ad-main {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+
+		.ad-content {
+			display: flex;
+			flex-direction: column;
+
+			h2 {
+				margin: 0;
+				font-size: 1.5em;
+				line-height: 1.2;
+			}
+
+			h3 {
+				margin: 0;
+				font-size: 1.125em;
+				line-height: 1.2;
+			}
+		}
+
+	}
+
+	.ad-img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 1em;
+
+		svg {
+			height: 150px;
+			width: 150px;
+		}
+
+		img {
+			max-height: 150px;
+		}
+	}
+}

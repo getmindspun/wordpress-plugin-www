@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from create-block-simple block)");
+console.log("Hello World! (from create-block-ad-inline block)");
 /* eslint-enable no-console */

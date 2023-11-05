@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "www/ad-inline",
+	"version": "0.1.0",
+	"title": "Inline with an image",
+	"category": "ads",
+	"icon": "smiley",
+	"description": "Two column add with an image for inside a blog post.",
+	"example": {},
+	"textdomain": "www",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"h2": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "h2",
+			"attribute": "text",
+			"default": "Try Mindspun today!"
+		},
+		"h3": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "h3",
+			"attribute": "text",
+			"default": "no signup required"
+		},
+		"button": {
+			"type": "object",
+			"default": {
+				"text": "Learn More",
+				"link": "https://www.mindspun.com"
+			}
+		},
+		"media": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"id": "",
+				"alt": "Mindspun"
+			}
+		}
+	}
+}
