@@ -1,5 +1,5 @@
 import {Props} from './types';
-import {__experimentalInputControl as InputControl} from '@wordpress/components';
+import {__experimentalInputControl as InputControl, SelectControl} from '@wordpress/components';
 import {InspectorControls, MediaPlaceholder} from '@wordpress/block-editor';
 
 const Controls = (props: Props) => {
@@ -40,6 +40,17 @@ const Controls = (props: Props) => {
 							props.setAttributes({button});
 						}}
 					/>
+				</div>
+				<div className="variant-controls">
+					<SelectControl
+						label={"Variation"}
+						options={ [
+							{ label: 'Default', value: 'default' },
+							{ label: 'Left Image', value: 'left' },
+						] }
+						value={props.attributes.variation}
+						onChange={text => props.setAttributes({variation: text as Props['attributes']['variation']})}
+						/>
 				</div>
 				<div className="media-controls">
 					<MediaPlaceholder

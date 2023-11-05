@@ -11,6 +11,7 @@ export type Props = {
 			id: string | undefined,
 			alt: string | undefined,
 		}
+		variation: 'default' | 'left';
 	}
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
 }

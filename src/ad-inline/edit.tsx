@@ -5,9 +5,12 @@ import {Props} from "./types";
 import Controls from "./Controls";
 
 export default function Edit(props: Props) {
+	const blockProps = useBlockProps({
+		className: `variation-${props.attributes.variation}`
+	})
 
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps }>
 			<Controls {...props} />
 			<div className="ad-main">
 				<div className="ad-content">

@@ -16,6 +16,10 @@
 	padding: 1em;
 	display: flex;
 
+	&.variation-left {
+		flex-direction: row-reverse;
+	}
+
 	.ad-main {
 		display: flex;
 		flex-grow: 1;

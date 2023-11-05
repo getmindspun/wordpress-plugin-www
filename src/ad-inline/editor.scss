@@ -14,9 +14,13 @@
 	}
 
 	.media-controls {
-		padding: 1em;
+		padding: 0 1em;
 		.components-placeholder.components-placeholder {
 			min-height: initial;
 		}
+	}
+
+	.variant-controls {
+		padding: 0 1em;
 	}
 }
