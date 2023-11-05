@@ -1,24 +1,31 @@
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
+import {useBlockProps} from '@wordpress/block-editor';
+import {ReactComponent as Image} from "./icons/no-image.svg";
+import {Props} from "./types";
+import React from "react";
 
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
- *
- * @return {Element} Element to render.
- */
-export default function save() {
+export default function save(props: {attributes: Props['attributes']}) {
+	const blockProps = useBlockProps.save({
+		className: `variation-${props.attributes.variation}`
+	})
+
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Src Template – hello from the saved content!' }
-		</p>
+		<div { ...blockProps }>
+			<div className="ad-main">
+				<div className="ad-content">
+					<h2>{ props.attributes.h2 }</h2>
+					<h3>{ props.attributes.h3 }</h3>
+					<a className="ad-btn ad-btn-link" href={props.attributes.button.link}>{props.attributes.button.text}</a>
+				</div>
+			</div>
+			<div className="ad-img">
+				{ !!props.attributes.media.url ?
+					<img
+						src={ props.attributes.media.url }
+						alt={ props.attributes.media.alt }
+					/> :
+					<Image />
+				}
+			</div>
+		</div>
 	);
 }

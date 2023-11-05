@@ -1,6 +1,8 @@
 import {useBlockProps} from '@wordpress/block-editor';
 import {Props} from "./types";
 import {ReactComponent as Icon} from "./icons/mindspun-icon.svg";
+import CTA from "./CTA";
+import React from "react";
 
 export default function save(props: {attributes: Props['attributes']}) {
 	return (
@@ -14,9 +16,7 @@ export default function save(props: {attributes: Props['attributes']}) {
 					<h3>{ props.attributes.h3 }</h3>
 				</div>
 			</div>
-			<div className="ad-cta">
-				<a href={props.attributes.button.link}>{props.attributes.button.text}</a>
-			</div>
+			<CTA {...props.attributes.button} />
 		</div>
 	);
 }

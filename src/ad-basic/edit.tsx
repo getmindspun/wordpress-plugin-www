@@ -3,6 +3,7 @@ import './editor.scss';
 import {Props} from "./types";
 import {ReactComponent as Icon} from "./icons/mindspun-icon.svg";
 import Controls from "./Controls";
+import CTA from "./CTA";
 
 export default function Edit(props: Props) {
 
@@ -26,9 +27,7 @@ export default function Edit(props: Props) {
 					/>
 				</div>
 			</div>
-			<div className="ad-cta">
-				<a className="ad-btn ad-btn-primary" href={props.attributes.button.link}>{props.attributes.button.text}</a>
-			</div>
+			<CTA {...props.attributes.button} />
 		</div>
 	);
 }
