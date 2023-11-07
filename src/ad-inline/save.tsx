@@ -14,7 +14,7 @@ export default function save(props: {attributes: Props['attributes']}) {
 				<div className="ad-content">
 					<h2>{ props.attributes.h2 }</h2>
 					<h3>{ props.attributes.h3 }</h3>
-					<a className="ad-btn ad-btn-link" href={props.attributes.button.link}>{props.attributes.button.text}</a>
+					<a className="ad-btn ad-btn-dark" href={props.attributes.button.link}>{props.attributes.button.text}</a>
 				</div>
 			</div>
 			<div className="ad-img">
