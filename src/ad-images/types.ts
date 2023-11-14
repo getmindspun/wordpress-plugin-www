@@ -1,8 +1,4 @@
-type Media = {
-	url: string | undefined,
-	id: string | undefined,
-	alt: string | undefined,
-}
+import {Media} from "../_common/controls/MediaControl";
 
 export type Props = {
 	attributes: {
