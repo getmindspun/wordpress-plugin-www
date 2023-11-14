@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       www Theme Plugin (!)
+ * Plugin Name:       www Theme Plugin
  * Description:       Blocks plugin for the www Theme
  * Requires at least: 6.1
  * Requires PHP:      7.0
