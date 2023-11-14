@@ -8,7 +8,7 @@ import CTA from "./CTA";
 export default function Edit(props: Props) {
 
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...useBlockProps() } style={props.attributes.container}>
 			<Controls {...props} />
 			<div className="ad-main">
 				<div className="ad-icon">

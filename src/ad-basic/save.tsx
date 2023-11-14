@@ -6,7 +6,7 @@ import React from "react";
 
 export default function save(props: {attributes: Props['attributes']}) {
 	return (
-		<div { ...useBlockProps.save() }>
+		<div { ...useBlockProps.save() } style={props.attributes.container}>
 			<div className="ad-main">
 				<div className="ad-icon">
 					<Icon/>

@@ -32,6 +32,10 @@
 				"text": "Learn More",
 				"link": "https://www.mindspun.com"
 			}
+		},
+		"container": {
+			"type": "object",
+			"default": {}
 		}
 	}
 }
