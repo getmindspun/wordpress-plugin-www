@@ -6,7 +6,7 @@ const CTA = (props: Props['attributes']['button']) => {
 
 	return (
 		<div className="ad-cta">
-			<a className="ad-btn ad-btn-primary" style={style} href={link}>{text}</a>
+			<a className="ad-btn ad-btn-white" style={style} href={link}>{text}</a>
 		</div>
 	);
 }

@@ -15,15 +15,11 @@
 	"attributes": {
 		"h2": {
 			"type": "string",
-			"source": "attribute",
-			"selector": "h2",
 			"attribute": "text",
 			"default": "Try Mindspun today!"
 		},
 		"h3": {
 			"type": "string",
-			"source": "attribute",
-			"selector": "h3",
 			"attribute": "text",
 			"default": "no signup required"
 		},

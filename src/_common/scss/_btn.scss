@@ -2,14 +2,12 @@
 
 .ad-btn, .editor-styles-wrapper .wp-block-post-content a:where(:not(.wp-element-button)).ad-btn {
 	text-align: center;
-	text-decoration: none !important;
-	padding: 1em 2em;
+	text-decoration: none;
+	padding: 12px 24px;
 	color: white;
-	border-radius: 5px;
-}
-
-.ad-btn:hover {
-	filter: brightness(1.15);
+	border-radius: 8px;
+	display: inline-block;
+	font-size: 16px;
 }
 
 .ad-btn:focus {
@@ -19,8 +17,28 @@
 }
 
 .ad-btn-primary {
-	background-color: $cyan;
+	background-color: $blue;
+	&:hover {
+		background-color: darken($blue, 10%);
+	}
+}
+
+.ad-btn-dark, .editor-styles-wrapper .wp-block-post-content a:where(:not(.wp-element-button)).ad-btn-dark {
+	background-color: $black;
+	&:hover {
+		background-color: $blue;
+	}
+}
+
+.ad-btn-white, .editor-styles-wrapper .wp-block-post-content a:where(:not(.wp-element-button)).ad-btn-white {
+	background-color: $white;
+	color: $black;
+	&:hover {
+		background-color: $black;
+		color: $white;
+	}
 }
 
 .ad-btn-link {
+	padding: 0;
 }

@@ -24,7 +24,7 @@ export default function Edit(props: Props) {
 						onChange={ (h3: string) => props.setAttributes( {h3}) }
 						value={ props.attributes.h3 }
 					/>
-					<a className="ad-btn ad-btn-link" href={props.attributes.button.link}>{props.attributes.button.text}</a>
+					<a className="ad-btn ad-btn-dark" href={props.attributes.button.link}>{props.attributes.button.text}</a>
 				</div>
 			</div>
 			<div className="ad-img">
