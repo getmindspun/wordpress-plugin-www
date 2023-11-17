@@ -30,7 +30,7 @@ const Controls = (props: Props & {
 						const horizontal = {...props.attributes.horizontal, ...media};
 						props.setAttributes({horizontal});
 					}}
-					help={ "Use an image that is exactly 728x90 pixels.  This image will only be shown on screens greater than or equal to 450px wide."}
+					help={ "Use an image that is exactly 728x90 pixels.  This image will only be shown on screens greater than or equal to 480px wide."}
 				/>
 				<MediaControl
 					title={ 'Large Mobile (320x100)' }
@@ -39,7 +39,7 @@ const Controls = (props: Props & {
 						const mobile = {...props.attributes.mobile, ...media};
 						props.setAttributes({mobile});
 					}}
-					help={ "Use an image that is exactly 320x100 pixels.  This image will only be shown on screens less than 450px wide."}
+					help={ "Use an image that is exactly 320x100 pixels.  This image will only be shown on screens less than 480px wide."}
 				/>
 			</div>
 		</InspectorControls>

@@ -65,5 +65,17 @@
 			max-height: 150px;
 		}
 	}
+
+	.ad-cta {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		@media(min-width: 480px){
+			display: flex;
+			width: fit-content;
+		}
+	}
 }
 
