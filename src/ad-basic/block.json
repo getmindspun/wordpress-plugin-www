@@ -29,6 +29,10 @@
 				"link": "https://www.mindspun.com"
 			}
 		},
+		"buttonHover": {
+			"type": "object",
+			"default": {}
+		},
 		"container": {
 			"type": "object",
 			"default": {}

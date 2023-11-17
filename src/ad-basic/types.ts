@@ -8,6 +8,7 @@ export type Props = {
 			text: string,
 			link: string
 		}
+		buttonHover: Pick<CSSProperties, 'color' | 'backgroundColor'>
 		container: Pick<CSSProperties, 'backgroundColor' | 'backgroundImage'>
 	}
 	setAttributes: (attributes: Partial<Props['attributes']>) => void

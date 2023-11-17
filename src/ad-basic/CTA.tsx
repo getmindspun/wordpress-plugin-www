@@ -1,13 +1,24 @@
 import {Props} from "./types";
+import {buildCSSRuleset} from "../_common/style";
 
-const CTA = (props: Props['attributes']['button']) => {
+function isNotEmpty(buttonHover: Props['attributes']['buttonHover']) {
+	return buttonHover.color || buttonHover.backgroundColor;
+}
 
-	const {text, link, ...style} = props;
+const CTA = (props: Props['attributes']) => {
+
+	const {text, link, ...style} = props.button;
+	const className = '.wp-block-www-ad-basic'
+
+	const hoverStyle = isNotEmpty(props.buttonHover) ? buildCSSRuleset(`${className} .ad-btn:hover`, props.buttonHover, true) : '';
 
 	return (
-		<div className="ad-cta">
-			<a className="ad-btn ad-btn-white" style={style} href={link}>{text}</a>
-		</div>
+		<>
+			{!!hoverStyle && <style>{hoverStyle}</style>}
+			<div className="ad-cta">
+				<a className="ad-btn ad-btn-white" style={style} href={link}>{text}</a>
+			</div>
+		</>
 	);
 }
 

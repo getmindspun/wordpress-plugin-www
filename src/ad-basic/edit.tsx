@@ -6,9 +6,9 @@ import Controls from "./Controls";
 import CTA from "./CTA";
 
 export default function Edit(props: Props) {
-	console.log('EDIT: ' + props.attributes.h2)
+	const blockProps = useBlockProps();
 	return (
-		<div { ...useBlockProps() } style={props.attributes.container}>
+		<div { ...blockProps } style={props.attributes.container}>
 			<Controls {...props} />
 			<div className="ad-main">
 				<div className="ad-icon">
@@ -31,7 +31,7 @@ export default function Edit(props: Props) {
 					/>
 				</div>
 			</div>
-			<CTA {...props.attributes.button} />
+			<CTA {...props.attributes} />
 		</div>
 	);
 }

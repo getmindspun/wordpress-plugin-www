@@ -4,7 +4,7 @@ import {ReactComponent as Icon} from "./icons/mindspun-icon.svg";
 import CTA from "./CTA";
 import React from "react";
 
-export default function save(props: {attributes: Props['attributes']}) {
+export default function save(props: {attributes: Props['attributes'], className: string}) {
 	const blockProps = useBlockProps.save();
 	return (
 		<div { ...blockProps } style={props.attributes.container}>
@@ -17,7 +17,7 @@ export default function save(props: {attributes: Props['attributes']}) {
 					<RichText.Content tagName="h3" value={ props.attributes.h3 } />
 				</div>
 			</div>
-			<CTA {...props.attributes.button} />
+			<CTA {...props.attributes} />
 		</div>
 	);
 }

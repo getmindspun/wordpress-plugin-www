@@ -40,6 +40,18 @@ const Controls = (props: Props) => {
 					/>
 				</ControlGroup>
 				<ControlGroup
+					title={'Button: Hover'}
+					attributes={props.attributes.buttonHover}
+					setAttributes={value => {
+						const buttonHover = {...props.attributes.buttonHover, ...value}
+						props.setAttributes({buttonHover});
+					}}
+					options={{
+						color: true,
+						backgroundColor: true
+					}}
+				 />
+				<ControlGroup
 					title={'Container'}
 					attributes={props.attributes.container}
 					setAttributes={value => {
