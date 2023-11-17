@@ -1,17 +1,10 @@
+import {BaseControlProps} from "../_common/controls/BaseControls";
+import {Media} from '../_common/controls/MediaControl';
+
 export type Props = {
 	attributes: {
-		h2: string,
-		h3: string,
-		button: {
-			text: string,
-			link: string
-		}
-		media: {
-			url: string | undefined,
-			id: string | undefined,
-			alt: string | undefined,
-		}
+		media: Media
 		variation: 'default' | 'left';
-	}
+	} & BaseControlProps['attributes']
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
 }

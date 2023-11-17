@@ -23,7 +23,7 @@
 		<use xlink:href="#SVGID_1_"  overflow="visible"/>
 	</clipPath>
 
-	<polygon clip-path="url(#SVGID_2_)" fill="white" points="-124.833,167.83 128.184,-129.098 425.783,124.49
+	<polygon clip-path="url(#SVGID_2_)" fill="currentColor" points="-124.833,167.83 128.184,-129.098 425.783,124.49
 		172.766,421.418 	"/>
 </g>
 <g>
@@ -35,7 +35,7 @@
 		<use xlink:href="#SVGID_4_"  overflow="visible"/>
 	</clipPath>
 
-	<polygon clip-path="url(#SVGID_5_)" fill="white" points="110.322,298.759 146.271,256.569 190.628,294.366
+	<polygon clip-path="url(#SVGID_5_)" fill="currentColor" points="110.322,298.759 146.271,256.569 190.628,294.366
 		154.678,336.556 	"/>
 </g>
 </svg>

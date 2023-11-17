@@ -1,30 +1,51 @@
+import {useEffect} from '@wordpress/element';
+import {useInstanceId} from '@wordpress/compose';
 import {RichText, useBlockProps} from '@wordpress/block-editor';
+
 import './editor.scss';
-import {ReactComponent as Image} from "./icons/no-image.svg";
-import {Props} from "./types";
-import Controls from "./Controls";
+import {ReactComponent as Image} from './icons/no-image.svg';
+import {Props} from './types';
+import Controls from './Controls';
+import CTA from './CTA';
 
 export default function Edit(props: Props) {
 	const blockProps = useBlockProps({
-		className: `variation-${props.attributes.variation}`
-	})
+		className: `ad-inline-${props.attributes.instanceId} variation-${props.attributes.variation}`
+	});
+	const instanceId = useInstanceId( Edit );
+
+	useEffect(() => {
+		if (!props.attributes.instanceId) {
+			props.setAttributes({instanceId: instanceId.toString()})
+		}
+	});
 
 	return (
-		<div { ...blockProps }>
+		<div { ...blockProps } style={props.attributes.container}>
 			<Controls {...props} />
 			<div className="ad-main">
 				<div className="ad-content">
 					<RichText
 						tagName="h2"
-						onChange={ (h2: string) => props.setAttributes( {h2}) }
-						value={ props.attributes.h2 }
+						style={props.attributes.heading}
+						onChange={ text => {
+							const heading = {...props.attributes.heading, text};
+							props.setAttributes( {heading})
+						}}
+						value={ props.attributes.heading.text }
+						allowedFormats={ [ 'core/bold', 'core/italic' ] }
 					/>
 					<RichText
 						tagName="h3"
-						onChange={ (h3: string) => props.setAttributes( {h3}) }
-						value={ props.attributes.h3 }
+						style={props.attributes.tagline}
+						onChange={ text => {
+							const tagline = {...props.attributes.tagline, text};
+							props.setAttributes( {tagline});
+						}}
+						value={ props.attributes.tagline.text }
+						allowedFormats={ [ 'core/bold', 'core/italic' ] }
 					/>
-					<a className="ad-btn ad-btn-dark" href={props.attributes.button.link}>{props.attributes.button.text}</a>
+					<CTA {...props.attributes} />
 				</div>
 			</div>
 			<div className="ad-img">

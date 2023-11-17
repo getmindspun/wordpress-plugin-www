@@ -12,7 +12,7 @@ export type Media = {
 	alt: string | undefined,
 }
 
-export type MediaControlProps = {
+export interface MediaControlProps {
 	title?: string,
 	help?: string
 	attributes: Media,

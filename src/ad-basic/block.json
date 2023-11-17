@@ -12,15 +12,23 @@
 	"editorStyle": "file:./editor.css",
 	"style": "file:./style.css",
 	"attributes": {
-		"h2": {
+		"instanceId": {
 			"type": "string",
-			"attribute": "html",
-			"default": "Try Mindspun today!"
+			"default": ""
 		},
-		"h3": {
+		"heading": {
+			"type": "object",
+			"attribute": "html",
+			"default": {
+				"text": "Try Mindspun today!"
+			}
+		},
+		"tagline": {
 			"type": "string",
 			"attribute": "html",
-			"default": "no signup required"
+			"default": {
+				"text": "No credit card required"
+			}
 		},
 		"button": {
 			"type": "object",

@@ -1,15 +1,6 @@
-import {CSSProperties} from 'react';
+import {BaseControlProps} from "../_common/controls/BaseControls";
 
 export type Props = {
-	attributes: {
-		h2: string,
-		h3: string,
-		button: Pick<CSSProperties, 'color' | 'backgroundColor'> & {
-			text: string,
-			link: string
-		}
-		buttonHover: Pick<CSSProperties, 'color' | 'backgroundColor'>
-		container: Pick<CSSProperties, 'backgroundColor' | 'backgroundImage'>
-	}
+	attributes: BaseControlProps['attributes'];
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
 }

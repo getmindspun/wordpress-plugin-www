@@ -8,7 +8,7 @@ function isNotEmpty(buttonHover: Props['attributes']['buttonHover']) {
 const CTA = (props: Props['attributes']) => {
 
 	const {text, link, ...style} = props.button;
-	const className = `.ad-basic-${props.instanceId}`;
+	const className = `.ad-inline-${props.instanceId}`;
 
 	const hoverStyle = isNotEmpty(props.buttonHover) ? buildCSSRuleset(`${className} .ad-btn:hover`, props.buttonHover, true) : '';
 
@@ -16,7 +16,7 @@ const CTA = (props: Props['attributes']) => {
 		<>
 			{!!hoverStyle && <style>{hoverStyle}</style>}
 			<div className="ad-cta">
-				<a className="ad-btn ad-btn-white" style={style} href={link}>{text}</a>
+				<a className="ad-btn ad-btn-dark" style={style} href={link}>{text}</a>
 			</div>
 		</>
 	);

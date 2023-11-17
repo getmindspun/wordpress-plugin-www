@@ -11,9 +11,11 @@
 .wp-block-www-ad-basic {
     border-radius: 0.4rem;
     background-color: $blue;
+	background-size: cover;
     color: $white;
     padding: 30px;
     display: flex;
+
     @media(max-width: 767px){
     	padding: 20px;
     	flex-direction: column;
@@ -52,7 +54,6 @@
 			    font-size: 18px;
 			    line-height: 1.2;
 			    font-weight: 400;
-			    color: rgba(255, 255, 255, 0.79);
 			}
 		}
 
