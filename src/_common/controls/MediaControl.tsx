@@ -1,6 +1,7 @@
 import {MediaPlaceholder} from '@wordpress/block-editor';
 import {ContainerControl, ContainerContents, ControlHeader} from 'wpx';
 import './MediaControl.scss';
+import React from 'react';
 
 function basename(str: string, sep: string = '/') {
 	return str.substring(str.lastIndexOf(sep) + 1);
@@ -10,18 +11,20 @@ export type Media = {
 	url: string | undefined,
 	id: string | undefined,
 	alt: string | undefined,
+	width: number | undefined,
+	height: number | undefined,
 }
 
 export interface MediaControlProps {
 	title?: string,
-	help?: string
+	help?: string,
 	attributes: Media,
-	setAttributes: (attributes: Partial<Media>) => void
+	setAttributes: (attributes: Partial<Media>) => void,
+	children?: React.ReactNode;
 }
 
 
 const MediaControl = (props: MediaControlProps) => {
-
 
 	const onSelect = (media: Media | null) => {
 		if (!media || !media.url) {
@@ -56,6 +59,11 @@ const MediaControl = (props: MediaControlProps) => {
 					/>
 					{!!props.help && <small>{props.help}</small>}
 				</ContainerContents>
+				{ !!props.children &&
+					<ContainerContents>
+						{props.children}
+					</ContainerContents>
+				}
 			</ContainerControl>
 		</div>
 	);

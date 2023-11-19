@@ -35,7 +35,8 @@
 			"type": "object",
 			"default": {
 				"text": "Learn More",
-				"link": "https://www.mindspun.com"
+				"link": "https://www.mindspun.com",
+				"align": "none"
 			}
 		},
 		"buttonHover": {
@@ -46,12 +47,24 @@
 			"type": "object",
 			"default": {}
 		},
+		"content": {
+			"type": "object",
+			"default": {}
+		},
+		"icon": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"id": "",
+				"alt": "Mindspun Icon"
+			}
+		},
 		"media": {
 			"type": "object",
 			"default": {
 				"url": "",
 				"id": "",
-				"alt": "Mindspun"
+				"alt": "Mindspun Image"
 			}
 		},
 		"variation": {

@@ -15,6 +15,7 @@
 
 	.media-controls {
 		padding: 0 1em;
+
 		.components-placeholder.components-placeholder {
 			min-height: initial;
 		}
@@ -26,5 +27,9 @@
 
 	.www-media-control {
 		background-color: white;
+	}
+
+	.wpx--container-contents .www-media-control .wpx--container-control {
+		border: 1px solid #e0e0e0;
 	}
 }
