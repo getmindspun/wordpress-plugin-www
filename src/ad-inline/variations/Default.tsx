@@ -10,7 +10,7 @@ const Default = (props: {attributes: Props['attributes'], setAttributes?: Props[
 	return (
 		<>
 			<div className="ad-main">
-				<Icon media={props.attributes.icon} />
+				<Icon attributes={props.attributes} />
 				<Content {...props}>
 					<CTA {...props.attributes} />
 				</Content>

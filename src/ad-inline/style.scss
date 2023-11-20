@@ -66,10 +66,6 @@
 			height: 150px;
 			width: 150px;
 		}
-
-		img {
-			max-height: 150px;
-		}
 	}
 
 	.ad-cta {
@@ -77,6 +73,19 @@
 			display: flex;
 			width: fit-content;
 		}
+	}
+
+	/* Visibility */
+	.ad-show-desktop {
+		display: none;
+
+		@media(min-width: 480px){
+			display: initial;
+		}
+	}
+
+	.ad-show-never {
+		display: none;
 	}
 
 	/* Alignment */

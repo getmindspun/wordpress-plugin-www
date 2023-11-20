@@ -14,6 +14,7 @@ import {
 	ContainerControl,
 	ControlGroup
 } from 'wpx';
+import ImageWidthControl from "../_common/controls/ImageWidthControl";
 
 const Controls = (props: Props) => {
 
@@ -21,9 +22,12 @@ const Controls = (props: Props) => {
 		if (!icon || !icon.url) {
 			props.setAttributes({
 				icon: {
+					...props.attributes.icon,
 					url: undefined,
 					id: undefined,
-					alt: undefined
+					alt: undefined,
+					width: undefined,
+					height: undefined
 				}
 			});
 			return;
@@ -35,9 +39,12 @@ const Controls = (props: Props) => {
 		if (!media || !media.url) {
 			props.setAttributes({
 				media: {
+					...props.attributes.media,
 					url: undefined,
 					id: undefined,
-					alt: undefined
+					alt: undefined,
+					width: undefined,
+					height: undefined,
 				}
 			});
 			return;
@@ -158,7 +165,11 @@ const Controls = (props: Props) => {
 				>
 					<MediaControl
 						title={'Background Image'}
-						attributes={ {url: props.attributes.container.backgroundImage, id: undefined, alt: undefined} }
+						attributes={ {
+							url: props.attributes.container.backgroundImage,
+							id: undefined, alt: undefined,
+							width: undefined, height: undefined
+						} }
 						setAttributes={ media => {
 							const backgroundImage = media.url ? `url(${media.url})` : undefined;
 							const container = {...props.attributes.container, backgroundImage}
@@ -198,7 +209,29 @@ const Controls = (props: Props) => {
 					setAttributes={ icon => {
 						setIconAttributes(icon as unknown as Props['attributes']['icon']);
 					}}
-				/>
+				>
+					<ImageWidthControl
+						title={'Width'}
+						value={props.attributes.icon.scaledWidth}
+						onChange={ scaledWidth => {
+							const icon = {...props.attributes.icon, scaledWidth};
+							props.setAttributes({icon});
+						}}
+					/>
+					<BorderControl
+						title="Border"
+						value={ props.attributes.icon }
+						onChange={ value => {
+							const icon = {...props.attributes.icon, ...value}
+							props.setAttributes({icon});
+						} }
+						radius={ props.attributes.icon.borderRadius }
+						onRadiusChange={ borderRadius => {
+							const icon = {...props.attributes.icon, borderRadius}
+							props.setAttributes({icon});
+						} }
+					/>
+				</MediaControl>
 				<MediaControl
 					title={'Image'}
 					attributes={props.attributes.media}
@@ -206,6 +239,14 @@ const Controls = (props: Props) => {
 						setImageAttributes(media as unknown as Props['attributes']['media']);
 					}}
 				>
+					<ImageWidthControl
+						title={'Width'}
+						value={props.attributes.media.scaledWidth}
+						onChange={ scaledWidth => {
+							const media = {...props.attributes.media, scaledWidth};
+							props.setAttributes({media});
+						}}
+					/>
 					<BorderControl
 						title="Border"
 						value={ props.attributes.media }

@@ -22,8 +22,14 @@ export type Props = {
 		content: Pick<CSSProperties, 'color'> & {
 			align: BlockAlign
 		}
-		icon: Media;
-		media: Media & Pick<CSSProperties, | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'>;
+		icon: Media & Pick<CSSProperties, | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'> & {
+			show: 'always' | 'desktop' | 'never';
+			scaledWidth: number | undefined
+		};
+		media: Media & Pick<CSSProperties, | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'> & {
+			show: 'always' | 'desktop' | 'never';
+			scaledWidth: number | undefined
+		};
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
 }

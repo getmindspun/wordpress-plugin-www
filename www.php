@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       www Theme Plugin
- * Description:       Blocks plugin for the www Theme
+ * Plugin Name:       Mindspun Block Ads
+ * Description:       Easily create inline advertisements for your blog using WordPress blocks.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
@@ -35,6 +35,8 @@ add_filter(
 			'title' => 'Ads',
 		);
 
-		return array($category) + $categories;
+		$result = array($category) + $categories;
+		error_log(print_r($result, true));
+		return $result;
 	}
 );

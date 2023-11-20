@@ -11,7 +11,7 @@ const Left = (props: {attributes: Props['attributes'], setAttributes?: Props['se
 		<>
 			<Image attributes={props.attributes} edit={!save}/>
 			<div className="ad-main">
-				<Icon media={props.attributes.icon} />
+				<Icon attributes={props.attributes} />
 				<Content {...props}>
 					<CTA {...props.attributes} />
 				</Content>
