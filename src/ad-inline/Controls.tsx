@@ -16,7 +16,10 @@ import {
 } from 'wpx';
 import ImageWidthControl from "../_common/controls/ImageWidthControl";
 
-const Controls = (props: Props) => {
+const Controls = (props: Props & {
+	focused: Record<string, boolean>,
+	setFocused: (value: Record<string, boolean>) => void;
+}) => {
 
 	const setIconAttributes = (icon: Props['attributes']['icon']) => {
 		if (!icon || !icon.url) {
@@ -209,6 +212,16 @@ const Controls = (props: Props) => {
 					setAttributes={ icon => {
 						setIconAttributes(icon as unknown as Props['attributes']['icon']);
 					}}
+					onMouseEnter={() => {
+						console.log('enter')
+						const focused = {icon: true};
+						props.setFocused(focused);
+					}}
+					onMouseLeave={() => {
+						console.log('leave')
+						const focused = {icon: false};
+						props.setFocused(focused);
+					}}
 				>
 					<ImageWidthControl
 						title={'Width'}
@@ -237,6 +250,14 @@ const Controls = (props: Props) => {
 					attributes={props.attributes.media}
 					setAttributes={media => {
 						setImageAttributes(media as unknown as Props['attributes']['media']);
+					}}
+					onMouseEnter={() => {
+						const focused = {image: true};
+						props.setFocused(focused);
+					}}
+					onMouseLeave={() => {
+						const focused = {image: false};
+						props.setFocused(focused);
 					}}
 				>
 					<ImageWidthControl

@@ -5,7 +5,10 @@
  */
 
 .wp-block-www-ad-inline {
-
+	.ad-focused {
+		outline: 3px dotted #50b5ff;
+		z-index: 1000;
+	}
 }
 
 .wp-block-www-ad-inline-controls {

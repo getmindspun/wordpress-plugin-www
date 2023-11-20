@@ -21,6 +21,8 @@ export interface MediaControlProps {
 	attributes: Media,
 	setAttributes: (attributes: Partial<Media>) => void,
 	children?: React.ReactNode;
+	onMouseEnter?: () => void;
+	onMouseLeave?: () => void;
 }
 
 
@@ -39,7 +41,11 @@ const MediaControl = (props: MediaControlProps) => {
 	};
 
 	return (
-		<div className={'www-media-control'}>
+		<div
+			className={'www-media-control'}
+			onMouseEnter={props.onMouseEnter}
+			onMouseLeave={props.onMouseLeave}
+		>
 			<ContainerControl title={props.title || ''}>
 				<ContainerContents>
 					{!!props.attributes.url &&

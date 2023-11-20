@@ -11,11 +11,10 @@ type ImageWidthControlProps = {
 }
 
 const ImageWidthControl = (props: ImageWidthControlProps) => {
-	const [isLinked, setIsLinked] = useState(false);
 	const [isAdvanced, setIsAdvanced] = useState(false);
 
     return (
-        <>
+        <div>
             <ControlHeader
                 title={ props.title }
                 hint={ '' }
@@ -46,7 +45,7 @@ const ImageWidthControl = (props: ImageWidthControlProps) => {
                     value={ props.value }
                 />
             }
-        </>
+        </div>
     );
 };
 

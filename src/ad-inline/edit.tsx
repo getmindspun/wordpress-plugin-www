@@ -1,4 +1,4 @@
-import {useEffect} from '@wordpress/element';
+import {useState, useEffect} from '@wordpress/element';
 import {useInstanceId} from '@wordpress/compose';
 import {useBlockProps} from '@wordpress/block-editor';
 
@@ -8,6 +8,8 @@ import Controls from './Controls';
 import Ad from './Ad';
 
 export default function Edit(props: Props) {
+	const [focused, setFocused] = useState<Record<string, boolean>>({});
+
 	const blockProps = useBlockProps({
 		className: `ad-inline-${props.attributes.instanceId} ad-variation-${props.attributes.variation}`
 	});
@@ -21,8 +23,8 @@ export default function Edit(props: Props) {
 
 	return (
 		<div { ...blockProps } style={props.attributes.container}>
-			<Controls {...props} />
-			<Ad {...props} />
+			<Controls {...props} focused={focused} setFocused={setFocused} />
+			<Ad {...props} focused={focused}/>
 		</div>
 	);
 }
