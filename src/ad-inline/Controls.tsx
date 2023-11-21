@@ -1,5 +1,5 @@
 import React from 'react';
-import {__experimentalInputControl as InputControl, SelectControl} from '@wordpress/components';
+import {__experimentalInputControl as InputControl, SelectControl, RadioControl} from '@wordpress/components';
 import {InspectorControls} from '@wordpress/block-editor';
 
 
@@ -260,6 +260,20 @@ const Controls = (props: Props & {
 						props.setFocused(focused);
 					}}
 				>
+					<RadioControl
+						label="Show image"
+						help="When should the image be shown."
+						selected={ props.attributes.media.show || 'always' }
+						options={ [
+							{ label: 'Always', value: 'always' },
+							{ label: 'Desktop Only', value: 'desktop' },
+							{ label: 'Never', value: 'never' },
+						] }
+						onChange={ ( show ) => {
+							const media = {...props.attributes.media, show: show as 'always' | 'desktop' | 'never'}
+							props.setAttributes({media});
+						} }
+					/>
 					<ImageWidthControl
 						title={'Width'}
 						value={props.attributes.media.scaledWidth}
