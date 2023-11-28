@@ -64,12 +64,8 @@ const MediaControl = (props: MediaControlProps) => {
 						}}
 					/>
 					{!!props.help && <small>{props.help}</small>}
+					{ !!props.children && props.children }
 				</ContainerContents>
-				{ !!props.children &&
-					<ContainerContents>
-						{props.children}
-					</ContainerContents>
-				}
 			</ContainerControl>
 		</div>
 	);

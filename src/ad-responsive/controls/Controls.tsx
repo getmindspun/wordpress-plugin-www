@@ -206,7 +206,7 @@ const Controls = (props: Props & {
 				>
 					<RadioControl
 						label="Show image"
-						help="When should the image be shown."
+						help="When should the image be shown?"
 						selected={ props.attributes.media.show || 'always' }
 						options={ [
 							{ label: 'Always', value: 'always' },
