@@ -1,10 +1,10 @@
 import React from 'react';
-import {__experimentalInputControl as InputControl, SelectControl, RadioControl} from '@wordpress/components';
+import {SelectControl, RadioControl} from '@wordpress/components';
 import {InspectorControls} from '@wordpress/block-editor';
 
 
-import {Props} from './types';
-import MediaControl from '../_common/controls/MediaControl';
+import {Props} from '../types';
+import MediaControl from '../../_common/controls/MediaControl';
 import {
 	BlockAlignControl,
 	BorderControl,
@@ -14,11 +14,12 @@ import {
 	ContainerControl,
 	ControlGroup
 } from 'wpx';
-import ImageWidthControl from "../_common/controls/ImageWidthControl";
+import ImageWidthControl from "../../_common/controls/ImageWidthControl";
+import ButtonControls from './ButtonControls';
 
 const Controls = (props: Props & {
-	focused: Record<string, boolean>,
-	setFocused: (value: Record<string, boolean>) => void;
+	focused: string|null,
+	setFocused: (value: string|null) => void;
 }) => {
 
 	const setIconAttributes = (icon: Props['attributes']['icon']) => {
@@ -57,7 +58,7 @@ const Controls = (props: Props & {
 
 	return (
 		<InspectorControls>
-			<div className="wp-block-www-ad-inline-controls">
+			<div className="wp-block-www-ad-responsive-controls">
 				<div className="variant-controls">
 					<SelectControl
 						label={"Variation"}
@@ -102,58 +103,7 @@ const Controls = (props: Props & {
 						textAlign: true
 					}}
 				/>
-				<ControlGroup
-					title={'Button'}
-					attributes={props.attributes.button}
-					setAttributes={value => {
-						const button = {...props.attributes.button, ...value}
-						props.setAttributes({button});
-					}}
-					options={{
-						color: true,
-						backgroundColor: true
-					}}
-				>
-					<InputControl
-						label="Button Text"
-						labelPosition="top"
-						value={props.attributes.button.text}
-						onChange={(text: string | undefined) => {
-							const button = {...props.attributes.button, text: text || ''};
-							props.setAttributes({button});
-						}}
-					/>
-					<InputControl
-						label="Button Link"
-						labelPosition="top"
-						value={props.attributes.button.link}
-						onChange={(link: string | undefined) => {
-							const button = {...props.attributes.button, link: link || '#'};
-							props.setAttributes({button});
-						}}
-					/>
-					<BlockAlignControl
-						label={'Alignment'}
-						options={['none', 'left', 'center', 'right', 'full']}
-						align={props.attributes.button.align}
-						onChange={ align => {
-							const button = {...props.attributes.button, align};
-							props.setAttributes({button});
-						}}
-					/>
-				</ControlGroup>
-				<ControlGroup
-					title={'Button: Hover'}
-					attributes={props.attributes.buttonHover}
-					setAttributes={value => {
-						const buttonHover = {...props.attributes.buttonHover, ...value}
-						props.setAttributes({buttonHover});
-					}}
-					options={{
-						color: true,
-						backgroundColor: true
-					}}
-				/>
+				<ButtonControls {...props} />
 				<ControlGroup
 					title={'Container'}
 					attributes={props.attributes.container}
@@ -213,14 +163,10 @@ const Controls = (props: Props & {
 						setIconAttributes(icon as unknown as Props['attributes']['icon']);
 					}}
 					onMouseEnter={() => {
-						console.log('enter')
-						const focused = {icon: true};
-						props.setFocused(focused);
+						props.setFocused('icon');
 					}}
 					onMouseLeave={() => {
-						console.log('leave')
-						const focused = {icon: false};
-						props.setFocused(focused);
+						props.setFocused(null);
 					}}
 				>
 					<ImageWidthControl
@@ -252,12 +198,10 @@ const Controls = (props: Props & {
 						setImageAttributes(media as unknown as Props['attributes']['media']);
 					}}
 					onMouseEnter={() => {
-						const focused = {image: true};
-						props.setFocused(focused);
+						props.setFocused('image');
 					}}
 					onMouseLeave={() => {
-						const focused = {image: false};
-						props.setFocused(focused);
+						props.setFocused(null);
 					}}
 				>
 					<RadioControl

@@ -15,9 +15,10 @@ export type Props = {
 		button: Pick<CSSProperties, 'color' | 'backgroundColor'> & {
 			text: string,
 			link: string,
-			align: BlockAlign
+			align: BlockAlign,
+			colorHover: CSSProperties['color'],
+			backgroundColorHover: CSSProperties['backgroundColor']
 		}
-		buttonHover: Pick<CSSProperties, 'color' | 'backgroundColor'>
 		container: Pick<CSSProperties, 'backgroundColor' | 'backgroundImage' | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'>
 		content: Pick<CSSProperties, 'color'> & {
 			align: BlockAlign

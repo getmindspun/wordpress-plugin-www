@@ -7,20 +7,19 @@ import {Props} from '../types';
 const Default = (props: {
 	attributes: Props['attributes'],
 	setAttributes?: Props['setAttributes'],
-	focused?: Record<string, boolean>
+	focused?: string|null
 }) => {
 	const save = !props.setAttributes;
-	console.log(props.focused)
 
 	return (
 		<>
 			<div className="ad-main">
-				<Icon attributes={props.attributes} focus={props.focused?.icon} />
+				<Icon attributes={props.attributes} focused={props.focused} />
 				<Content {...props}>
-					<CTA {...props.attributes} />
+					<CTA {...props.attributes} focused={props.focused} />
 				</Content>
 			</div>
-			<Image attributes={props.attributes} edit={!save} focus={props.focused?.image}/>
+			<Image attributes={props.attributes} edit={!save} focused={props.focused}/>
 		</>
 	);
 }

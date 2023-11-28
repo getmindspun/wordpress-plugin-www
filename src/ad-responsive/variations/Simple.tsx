@@ -6,15 +6,15 @@ import {Props} from '../types';
 const Simple = (props: {
 	attributes: Props['attributes'],
 	setAttributes?: Props['setAttributes'],
-	focused?: Record<string, boolean>
+	focused?: string|null
 }) => {
 	return (
 		<>
 			<div className="ad-main">
-				<Icon attributes={props.attributes} focus={props.focused?.icon} />
+				<Icon attributes={props.attributes} focused={props.focused} />
 				<Content {...props} />
 			</div>
-			<CTA {...props.attributes} />
+			<CTA {...props.attributes} focused={props.focused}/>
 		</>
 	);
 }

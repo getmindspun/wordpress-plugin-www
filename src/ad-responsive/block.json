@@ -1,16 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "www/ad-inline",
+	"name": "www/ad-responsive",
 	"version": "0.1.0",
-	"title": "Inline ad",
+	"title": "Responsive Ad",
 	"category": "ads",
 	"icon": "money",
-	"description": "Two column add with an image for inside a blog post.",
+	"description": "Fully responsive inline ad.",
 	"example": {},
 	"textdomain": "www",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
+	"editorScript": ["wpx","file:./index.js"],
+	"editorStyle": ["wpx","file:./editor.css"],
 	"style": "file:./style.css",
 	"attributes": {
 		"instanceId": {
@@ -35,13 +35,8 @@
 			"type": "object",
 			"default": {
 				"text": "Learn More",
-				"link": "https://www.mindspun.com",
-				"align": "none"
+				"link": "https://www.mindspun.com"
 			}
-		},
-		"buttonHover": {
-			"type": "object",
-			"default": {}
 		},
 		"container": {
 			"type": "object",

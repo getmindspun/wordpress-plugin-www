@@ -6,7 +6,7 @@ import Simple from './variations/Simple';
 const Ad = (props: {
 	attributes: Props['attributes'],
 	setAttributes?: Props['setAttributes'],
-	focused?: Record<string, boolean>
+	focused?: string|null
 }) => {
 	return (
 		<>

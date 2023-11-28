@@ -23,14 +23,15 @@
 	}
 }
 
-.ad-btn-dark, .editor-styles-wrapper .wp-block-post-content a:where(:not(.wp-element-button)).ad-btn-dark {
+.ad-btn-dark, .wp-block-post-content a:where(:not(.wp-element-button)).ad-btn-dark {
+	color: white;
 	background-color: $black;
 	&:hover {
 		background-color: $blue;
 	}
 }
 
-.ad-btn-white, .editor-styles-wrapper .wp-block-post-content a:where(:not(.wp-element-button)).ad-btn-white {
+.ad-btn-white, .wp-block-post-content a:where(:not(.wp-element-button)).ad-btn-white {
 	background-color: $white;
 	color: $black;
 	&:hover {

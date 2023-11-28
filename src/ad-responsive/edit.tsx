@@ -4,14 +4,14 @@ import {useBlockProps} from '@wordpress/block-editor';
 
 import './editor.scss';
 import {Props} from './types';
-import Controls from './Controls';
+import Controls from './controls/Controls';
 import Ad from './Ad';
 
 export default function Edit(props: Props) {
-	const [focused, setFocused] = useState<Record<string, boolean>>({});
+	const [focused, setFocused] = useState<string|null>(null);
 
 	const blockProps = useBlockProps({
-		className: `ad-inline-${props.attributes.instanceId} ad-variation-${props.attributes.variation}`
+		className: `ad-responsive-${props.attributes.instanceId} ad-variation-${props.attributes.variation}`
 	});
 	const instanceId = useInstanceId( Edit );
 

@@ -6,7 +6,7 @@ import Ad from './Ad';
 
 export default function save(props: {attributes: Props['attributes']}) {
 	const blockProps = useBlockProps.save({
-		className: `ad-inline-${props.attributes.instanceId} ad-variation-${props.attributes.variation}`,
+		className: `ad-responsive-${props.attributes.instanceId} ad-variation-${props.attributes.variation}`,
 	})
 
 	return (
