@@ -1,38 +1,41 @@
-import {Props} from './types';
 import React from 'react';
-import {RichText} from '@wordpress/block-editor';
 import classNames from 'classnames';
+import {RichText} from '@wordpress/block-editor';
 
-const Heading = (props: {
-	attributes: Props['attributes'],
-	setAttributes?: Props['setAttributes'],
-	focused?: string | null;
-}) => {
-	const save = !props.setAttributes;
+import {ComponentProps} from './types';
+import StylePortal from './StylePortal';
+
+const Heading = (props: ComponentProps) => {
 	const {text, ...style} = props.attributes.heading;
 
-	const className = classNames({
+	const className = classNames('ad-heading', {
 		'ad-focused': props.focused === 'heading'
 	});
 
-	if (save) {
+	if (!props.edit) {
 		return (
 			<RichText.Content tagName="h2" value={ text } />
 		);
 	}
 
 	return (
-		<RichText
-			className={className}
-			tagName="h2"
-			style={ style }
-			onChange={ text => {
-				const heading = {...props.attributes.heading, text};
-				props.setAttributes!( {heading})
-			}}
-			value={ text }
-			allowedFormats={ [ 'core/bold', 'core/italic' ] }
-		/>
+		<>
+			<StylePortal
+				instanceId={props.attributes.instanceId}
+				attributes={style}
+				selector={'.ad-heading'}
+			/>
+			<RichText
+				className={className}
+				tagName="h2"
+				onChange={ text => {
+					const heading = {...props.attributes.heading, text};
+					props.setAttributes!( {heading})
+				}}
+				value={ text }
+				allowedFormats={ [ 'core/bold', 'core/italic' ] }
+			/>
+		</>
 	);
 }
 
