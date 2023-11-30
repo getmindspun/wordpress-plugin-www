@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 
-import {Props} from './types';
+import {ComponentProps} from './types';
 import {ReactComponent as NoImage} from './icons/no-image.svg';
 
-const Image = (props: {attributes: Props['attributes']} & {edit?: boolean, focused?: string|null}) => {
+const Image = (props: ComponentProps) => {
 	const {url, alt, id, height, width, scaledWidth, show, ...style} = props.attributes.media;
 
 	if (!props.edit && !url) {

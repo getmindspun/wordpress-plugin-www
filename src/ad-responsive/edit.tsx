@@ -23,8 +23,8 @@ export default function Edit(props: Props) {
 
 	return (
 		<div { ...blockProps } style={props.attributes.container}>
-			<Controls {...props} focused={focused} setFocused={setFocused} />
-			<Ad {...props} focused={focused}/>
+			<Controls {...props} setFocused={setFocused} />
+			<Ad {...props} focused={focused} edit={true} />
 		</div>
 	);
 }

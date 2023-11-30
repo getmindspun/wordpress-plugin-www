@@ -1,18 +1,14 @@
-import {Props} from './types';
+import {ComponentProps, Props} from './types';
 import Default from './variations/Default';
 import Left from './variations/Left';
 import Simple from './variations/Simple';
 
-const Ad = (props: {
-	attributes: Props['attributes'],
-	setAttributes?: Props['setAttributes'],
-	focused?: string|null
-}) => {
+const Ad = (props: ComponentProps) => {
 	return (
 		<>
-			{props.attributes.variation === 'default' && <Default {...props} focused={props.focused} />}
-			{props.attributes.variation === 'left' && <Left {...props} focused={props.focused} />}
-			{props.attributes.variation === 'simple' && <Simple {...props} focused={props.focused} />}
+			{props.attributes.variation === 'default' && <Default {...props} />}
+			{props.attributes.variation === 'left' && <Left {...props} />}
+			{props.attributes.variation === 'simple' && <Simple {...props} />}
 		</>
 	);
 }

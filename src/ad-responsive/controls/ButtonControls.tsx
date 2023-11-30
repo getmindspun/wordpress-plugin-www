@@ -12,7 +12,6 @@ import {__experimentalInputControl as InputControl} from '@wordpress/components'
 import React from 'react';
 
 const ButtonControls = (props: Props & {
-	focused: string|null,
 	setFocused: (value: string|null) => void;
 }) => {
 	return (
@@ -44,7 +43,7 @@ const ButtonControls = (props: Props & {
 						/>
 						<BlockAlignControl
 							label={'Alignment'}
-							options={['none', 'left', 'center', 'right', 'full']}
+							options={['left', 'center', 'right', 'full']}
 							align={props.attributes.button.align}
 							onChange={ align => {
 								const button = {...props.attributes.button, align};

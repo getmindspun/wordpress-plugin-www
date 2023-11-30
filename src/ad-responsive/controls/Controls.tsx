@@ -16,9 +16,10 @@ import {
 } from 'wpx';
 import ImageWidthControl from "../../_common/controls/ImageWidthControl";
 import ButtonControls from './ButtonControls';
+import HeadingControls from './HeadingControls';
+import TaglineControls from './TaglineControls';
 
 const Controls = (props: Props & {
-	focused: string|null,
 	setFocused: (value: string|null) => void;
 }) => {
 
@@ -71,38 +72,8 @@ const Controls = (props: Props & {
 						onChange={text => props.setAttributes({variation: text as Props['attributes']['variation']})}
 					/>
 				</div>
-				<ControlGroup
-					title={'Heading'}
-					attributes={props.attributes.heading}
-					setAttributes={value => {
-						const heading = {...props.attributes.heading, ...value}
-						props.setAttributes({heading});
-					}}
-					options={{
-						color: true,
-						fontSize: true,
-						padding: true,
-						margin: true,
-						letterCase: true,
-						textAlign: true
-					}}
-				/>
-				<ControlGroup
-					title={'Tagline'}
-					attributes={props.attributes.tagline}
-					setAttributes={value => {
-						const tagline = {...props.attributes.tagline, ...value}
-						props.setAttributes({tagline});
-					}}
-					options={{
-						color: true,
-						fontSize: true,
-						padding: true,
-						margin: true,
-						letterCase: true,
-						textAlign: true
-					}}
-				/>
+				<HeadingControls {...props} />
+				<TaglineControls {...props} />
 				<ButtonControls {...props} />
 				<ControlGroup
 					title={'Container'}
@@ -147,7 +118,7 @@ const Controls = (props: Props & {
 						</ColorsGroup>
 						<BlockAlignControl
 							label={'Alignment'}
-							options={['none', 'left', 'center', 'right', 'full']}
+							options={['left', 'center', 'right', 'full']}
 							align={props.attributes.content.align}
 							onChange={ align => {
 								const content = {...props.attributes.content, align};

@@ -1,12 +1,12 @@
 import {Media} from '../_common/controls/MediaControl';
 import {BlockAlign} from 'wpx';
-import {CSSProperties} from 'react';
+import React, {CSSProperties} from 'react';
 
 export type Props = {
 	attributes: {
 		instanceId: string,
 		variation: 'default' | 'left' | 'simple';
-		heading: Pick<CSSProperties, 'color'> & {
+		heading: Pick<CSSProperties, 'color' | 'margin' | 'padding'> & {
 			text: string,
 		},
 		tagline: Pick<CSSProperties, 'color'> & {
@@ -21,7 +21,7 @@ export type Props = {
 		}
 		container: Pick<CSSProperties, 'backgroundColor' | 'backgroundImage' | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'>
 		content: Pick<CSSProperties, 'color'> & {
-			align: BlockAlign
+			align: BlockAlign | undefined
 		}
 		icon: Media & Pick<CSSProperties, | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'> & {
 			show: 'always' | 'desktop' | 'never';
@@ -33,4 +33,13 @@ export type Props = {
 		};
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
+}
+
+export interface ComponentProps extends Props {
+	edit?: boolean;
+	focused?: string|null;
+}
+
+export interface ComponentPropsWithChildren extends ComponentProps {
+	children: React.ReactNode
 }

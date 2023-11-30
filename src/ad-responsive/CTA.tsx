@@ -1,6 +1,6 @@
 import {CSSProperties} from 'react';
 
-import {Props} from './types';
+import {ComponentProps, Props} from './types';
 import {buildCSSRuleset} from '../_common/style';
 import classNames from 'classnames';
 
@@ -21,11 +21,11 @@ function parseHoverStyles(style: CSSProperties & {[key: string]: any}) {
 	return [hover, rest]
 }
 
-const CTA = (props: Props['attributes'] & {focused?: string|null}) => {
+const CTA = (props: ComponentProps) => {
 
-	const [hoverStyle, rest] = parseHoverStyles(props.button);
+	const [hoverStyle, rest] = parseHoverStyles(props.attributes.button);
 	const {align, text, link, ...style} = rest;
-	const selectors = `.ad-responsive-${props.instanceId}`;
+	const selectors = `.ad-responsive-${props.attributes.instanceId}`;
 
 	const inlineStyle = isNotEmpty(hoverStyle) ? buildCSSRuleset(`${selectors} .ad-btn:hover`, hoverStyle, true) : '';
 

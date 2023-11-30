@@ -1,7 +1,7 @@
-import {Props} from './types';
+import {ComponentProps} from './types';
 import classNames from 'classnames';
 
-const Icon = (props: {attributes: Props['attributes'], focused?: string|null}) => {
+const Icon = (props: ComponentProps) => {
 
 	const {url, alt, id, height, width, scaledWidth, show, ...style} = props.attributes.icon;
 

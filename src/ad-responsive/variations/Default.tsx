@@ -2,24 +2,20 @@ import Icon from '../Icon';
 import Image from '../Image';
 import Content from '../Content';
 import CTA from '../CTA';
-import {Props} from '../types';
+import {ComponentProps, Props} from '../types';
 
-const Default = (props: {
-	attributes: Props['attributes'],
-	setAttributes?: Props['setAttributes'],
-	focused?: string|null
-}) => {
+const Default = (props: ComponentProps) => {
 	const save = !props.setAttributes;
 
 	return (
 		<>
 			<div className="ad-main">
-				<Icon attributes={props.attributes} focused={props.focused} />
+				<Icon {...props} />
 				<Content {...props}>
-					<CTA {...props.attributes} focused={props.focused} />
+					<CTA {...props} />
 				</Content>
 			</div>
-			<Image attributes={props.attributes} edit={!save} focused={props.focused}/>
+			<Image {...props}/>
 		</>
 	);
 }

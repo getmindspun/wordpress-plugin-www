@@ -1,11 +1,11 @@
 import {RichText} from '@wordpress/block-editor';
 import React from 'react';
 
-import {Props} from './types';
+import {ComponentProps, ComponentPropsWithChildren} from './types';
 import Heading from './Heading';
 import Tagline from './Tagline';
 
-const Content = (props: {attributes: Props['attributes'], setAttributes?: Props['setAttributes']} & {children?: React.ReactNode}) => {
+const Content = (props: ComponentPropsWithChildren) => {
 	const {align, ...style} = props.attributes.content;
 	return (
 		<div className={`ad-align ad-align-${align ? align : 'none'} ad-content`} style={style}>
