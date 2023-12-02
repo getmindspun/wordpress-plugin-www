@@ -42,11 +42,13 @@
 		},
 		"container": {
 			"type": "object",
-			"default": {}
+			"default": {},
+			"selector": ".ad-container"
 		},
 		"content": {
 			"type": "object",
-			"default": {}
+			"default": {},
+			"selector": ".ad-content"
 		},
 		"icon": {
 			"type": "object",
@@ -54,7 +56,8 @@
 				"url": "",
 				"id": "",
 				"alt": "Mindspun Icon"
-			}
+			},
+			"selector": ".ad-icon"
 		},
 		"media": {
 			"type": "object",
@@ -62,7 +65,8 @@
 				"url": "",
 				"id": "",
 				"alt": "Mindspun Image"
-			}
+			},
+			"selector": ".ad-img"
 		},
 		"variation": {
 			"enum": ["default", "left"],

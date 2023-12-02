@@ -6,12 +6,7 @@ import {InspectorControls} from '@wordpress/block-editor';
 import {Props} from '../types';
 import MediaControl from '../../_common/controls/MediaControl';
 import {
-	BlockAlignControl,
 	BorderControl,
-	ColorControl,
-	ColorsGroup,
-	ContainerContents,
-	ContainerControl,
 } from 'wpx';
 
 import ImageWidthControl from "../../_common/controls/ImageWidthControl";
@@ -19,6 +14,7 @@ import ButtonControls from './ButtonControls';
 import HeadingControls from './HeadingControls';
 import TaglineControls from './TaglineControls';
 import ContainerControls from './ContainerControls';
+import ContentControls from './ContentControls';
 
 const Controls = (props: Props & {
 	setFocused: (value: string|null) => void;
@@ -77,32 +73,7 @@ const Controls = (props: Props & {
 				<TaglineControls {...props} />
 				<ButtonControls {...props} />
 				<ContainerControls {...props} />
-				<ContainerControl title={'Content'}>
-					<ContainerContents>
-						<ColorsGroup>
-							<ColorControl
-								title={ 'Color' }
-								value={ props.attributes.content.color }
-								onChange={ (color: string | undefined) => {
-									/* Intentionally set the color to the empty string when undefined
-									 * otherwise setAttributes won't recognize it.
-									 */
-									const content = {...props.attributes.content, color: color ? color : ''}
-									props.setAttributes({content});
-								} }
-							/>
-						</ColorsGroup>
-						<BlockAlignControl
-							label={'Alignment'}
-							options={['left', 'center', 'right', 'full']}
-							align={props.attributes.content.align}
-							onChange={ align => {
-								const content = {...props.attributes.content, align};
-								props.setAttributes({content});
-							}}
-						/>
-					</ContainerContents>
-				</ContainerControl>
+				<ContentControls {...props} />
 				<MediaControl
 					title={'Icon'}
 					attributes={ props.attributes.icon }

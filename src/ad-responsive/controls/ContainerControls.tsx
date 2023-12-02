@@ -1,8 +1,7 @@
 import React from 'react';
-import {ControlGroup} from 'wpx';
+import {BackgroundImageControl, ControlGroup,} from 'wpx';
 
 import {Props} from '../types';
-import MediaControl from '../../_common/controls/MediaControl';
 
 const ContainerControls = (props: Props & {
 	setFocused: (value: string|null) => void;
@@ -22,16 +21,10 @@ const ContainerControls = (props: Props & {
 			onMouseEnter={() => props.setFocused('container')}
 			onMouseLeave={() => props.setFocused(null)}
 		>
-			<MediaControl
-				title={'Background Image'}
-				attributes={ {
-					url: props.attributes.container.backgroundImage,
-					id: undefined, alt: undefined,
-					width: undefined, height: undefined
-				} }
-				setAttributes={ media => {
-					const backgroundImage = media.url ? `url(${media.url})` : undefined;
-					const container = {...props.attributes.container, backgroundImage}
+			<BackgroundImageControl
+				attributes={props.attributes.container}
+				setAttributes={ attributes => {
+					const container = {...props.attributes.container, ...attributes}
 					props.setAttributes({container})
 				}}
 			/>

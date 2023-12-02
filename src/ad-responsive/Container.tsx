@@ -5,7 +5,7 @@ import Style from './Style';
 const Container = (props: ComponentPropsWithChildren) => {
 	const className = classNames('ad-container', {
 		'ad-focused': props.focused === 'container'
-	})
+	});
 
 	return (
 		<>
@@ -14,7 +14,6 @@ const Container = (props: ComponentPropsWithChildren) => {
 				selector={'.ad-container'}
 				attributes={props.attributes.container}
 			/>}
-
 			<div className={className}>
 				{props.children}
 			</div>
