@@ -12,12 +12,13 @@ import {
 	ColorsGroup,
 	ContainerContents,
 	ContainerControl,
-	ControlGroup
 } from 'wpx';
+
 import ImageWidthControl from "../../_common/controls/ImageWidthControl";
 import ButtonControls from './ButtonControls';
 import HeadingControls from './HeadingControls';
 import TaglineControls from './TaglineControls';
+import ContainerControls from './ContainerControls';
 
 const Controls = (props: Props & {
 	setFocused: (value: string|null) => void;
@@ -75,32 +76,7 @@ const Controls = (props: Props & {
 				<HeadingControls {...props} />
 				<TaglineControls {...props} />
 				<ButtonControls {...props} />
-				<ControlGroup
-					title={'Container'}
-					attributes={props.attributes.container}
-					setAttributes={value => {
-						const container = {...props.attributes.container, ...value}
-						props.setAttributes({container});
-					}}
-					options={{
-						backgroundColor: true,
-						border: true,
-					}}
-				>
-					<MediaControl
-						title={'Background Image'}
-						attributes={ {
-							url: props.attributes.container.backgroundImage,
-							id: undefined, alt: undefined,
-							width: undefined, height: undefined
-						} }
-						setAttributes={ media => {
-							const backgroundImage = media.url ? `url(${media.url})` : undefined;
-							const container = {...props.attributes.container, backgroundImage}
-							props.setAttributes({container})
-						}}
-					/>
-				</ControlGroup>
+				<ContainerControls {...props} />
 				<ContainerControl title={'Content'}>
 					<ContainerContents>
 						<ColorsGroup>

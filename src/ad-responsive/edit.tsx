@@ -8,8 +8,8 @@ import {Props} from './types';
 import Controls from './controls/Controls';
 import Ad from './Ad';
 
-export default function Edit(props: Props & {clientId: string}) {
-	const [focused, setFocused] = useState<string|null>(null);
+export default function Edit(props: Props & { clientId: string }) {
+	const [focused, setFocused] = useState<string | null>(null);
 
 	const blockId = useBlockId(props.attributes.blockId, props.clientId)
 
@@ -24,9 +24,9 @@ export default function Edit(props: Props & {clientId: string}) {
 	}, [blockId, props.attributes.blockId]);
 
 	return (
-		<div { ...blockProps } id={`wpx-${blockId}`} style={props.attributes.container}>
-			<Controls {...props} setFocused={setFocused} />
-			<Ad {...props} focused={focused} edit={true} />
+		<div {...blockProps} id={`wpx-${blockId}`}>
+			<Controls {...props} setFocused={setFocused}/>
+			<Ad {...props} focused={focused} edit={true}/>
 		</div>
 	);
 }

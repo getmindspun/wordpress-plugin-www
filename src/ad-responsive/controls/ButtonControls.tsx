@@ -1,3 +1,5 @@
+import {__experimentalInputControl as InputControl} from '@wordpress/components';
+
 import {
 	BlockAlignResponsiveControl,
 	ColorsGroup,
@@ -9,8 +11,6 @@ import {
 } from 'wpx';
 
 import {Props} from '../types';
-import {__experimentalInputControl as InputControl} from '@wordpress/components';
-import React from 'react';
 
 const ButtonControls = (props: Props & {
 	setFocused: (value: string|null) => void;

@@ -10,7 +10,7 @@ export default function save(props: {attributes: Props['attributes']}) {
 	})
 
 	return (
-		<div { ...blockProps } id={`wpx-${props.attributes.blockId}`} style={props.attributes.container}>
+		<div { ...blockProps } id={`wpx-${props.attributes.blockId}`}>
 			<Ad {...props} />
 		</div>
 	);
