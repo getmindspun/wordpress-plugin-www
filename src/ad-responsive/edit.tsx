@@ -1,30 +1,30 @@
 import {useState, useEffect} from '@wordpress/element';
 import {useBlockProps} from '@wordpress/block-editor';
 
-import {useUniqueId} from 'wpx';
+import {useBlockId} from 'wpx';
 
 import './editor.scss';
 import {Props} from './types';
 import Controls from './controls/Controls';
 import Ad from './Ad';
 
-export default function Edit(props: Props) {
+export default function Edit(props: Props & {clientId: string}) {
 	const [focused, setFocused] = useState<string|null>(null);
 
-	const instanceId = useUniqueId( Edit );
+	const blockId = useBlockId(props.attributes.blockId, props.clientId)
 
 	const blockProps = useBlockProps({
-		className: `ad-responsive-${props.attributes.instanceId} ad-variation-${props.attributes.variation}`
+		className: `ad-responsive-${blockId} ad-variation-${props.attributes.variation}`
 	});
 
 	useEffect(() => {
-		if (instanceId !== props.attributes.instanceId) {
-			props.setAttributes({instanceId})
+		if (blockId !== props.attributes.blockId) {
+			props.setAttributes({blockId})
 		}
-	}, [instanceId, props.attributes.instanceId]);
+	}, [blockId, props.attributes.blockId]);
 
 	return (
-		<div { ...blockProps } id={`ad-${instanceId}`} style={props.attributes.container}>
+		<div { ...blockProps } id={`wpx-${blockId}`} style={props.attributes.container}>
 			<Controls {...props} setFocused={setFocused} />
 			<Ad {...props} focused={focused} edit={true} />
 		</div>

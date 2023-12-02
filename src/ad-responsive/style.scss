@@ -88,31 +88,6 @@
 		display: none;
 	}
 
-	/* Alignment */
-	.ad-align {
-		display: flex;
-		width: 100%;
-	}
-
-	.ad-align-left {
-		justify-content: start !important;
-	}
-
-	.ad-align-right {
-		justify-content: end !important;
-	}
-
-	.ad-align-center {
-		justify-content: center !important;
-	}
-
-	.ad-align-full {
-		justify-content: center !important;
-		& > * {
-			width: 100%;
-		}
-	}
-
 	/* Variations */
 	&.ad-variation-simple {
 		.ad-cta {

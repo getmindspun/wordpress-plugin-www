@@ -1,11 +1,13 @@
-import {ContainerControl, ControlGroup, ColorControl, ColorsGroup, ContainerContents} from "wpx";
-import {__experimentalInputControl as InputControl} from "@wordpress/components";
-import React, {CSSProperties} from "react";
-import MediaControl from "./MediaControl";
+import React, {CSSProperties} from 'react';
+import {__experimentalInputControl as InputControl} from '@wordpress/components';
+
+import {ContainerControl, ControlGroup, ColorControl, ColorsGroup, ContainerContents} from 'wpx';
+
+import MediaControl from './MediaControl';
 
 export interface BaseControlProps {
 	attributes: {
-		instanceId: string,
+		blockId: string,
 		heading: Pick<CSSProperties, 'color'> & {
 			text: string,
 		},
@@ -120,7 +122,7 @@ const BaseControls = (props: BaseControlProps) => {
 						/>
 						<MediaControl
 							title={'Background Image'}
-							attributes={ {url: props.attributes.container.backgroundImage, id: undefined, alt: undefined} }
+							attributes={ {url: props.attributes.container.backgroundImage, id: undefined, alt: undefined, width: undefined, height: undefined} }
 							setAttributes={ media => {
 								const backgroundImage = media.url ? `url(${media.url})` : undefined;
 								const container = {...props.attributes.container, backgroundImage}

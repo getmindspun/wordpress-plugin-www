@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Responsive Ad",
 	"category": "ads",
-	"icon": "money",
 	"description": "Fully responsive inline ad.",
 	"example": {},
 	"textdomain": "www",
@@ -13,7 +12,7 @@
 	"editorStyle": ["wpx","file:./editor.css"],
 	"style": "file:./style.css",
 	"attributes": {
-		"instanceId": {
+		"blockId": {
 			"type": "string",
 			"default": ""
 		},
@@ -22,21 +21,24 @@
 			"attribute": "html",
 			"default": {
 				"text": "Try Mindspun today!"
-			}
+			},
+			"selector": ".ad-heading"
 		},
 		"tagline": {
-			"type": "string",
+			"type": "object",
 			"attribute": "html",
 			"default": {
 				"text": "No credit card required"
-			}
+			},
+			"selector": ".ad-tagline"
 		},
 		"button": {
 			"type": "object",
 			"default": {
 				"text": "Learn More",
 				"link": "https://www.mindspun.com"
-			}
+			},
+			"selector": ".ad-btn"
 		},
 		"container": {
 			"type": "object",

@@ -35,8 +35,6 @@ add_filter(
 			'title' => 'Ads',
 		);
 
-		$result = array($category) + $categories;
-		error_log(print_r($result, true));
-		return $result;
+		return array($category) + $categories;
 	}
 );

@@ -1,10 +1,11 @@
 import {
+	BlockAlignResponsiveControl,
 	ColorsGroup,
 	ColorControl,
 	ContainerContents,
 	ContainerControl,
 	TabbedContainer,
-	TabbedControl, BlockAlignControl
+	TabbedControl
 } from 'wpx';
 
 import {Props} from '../types';
@@ -41,12 +42,12 @@ const ButtonControls = (props: Props & {
 								props.setAttributes({button});
 							}}
 						/>
-						<BlockAlignControl
+						<BlockAlignResponsiveControl
 							label={'Alignment'}
 							options={['left', 'center', 'right', 'full']}
-							align={props.attributes.button.align}
-							onChange={ align => {
-								const button = {...props.attributes.button, align};
+							attributes={props.attributes.button}
+							setAttributes={attributes => {
+								const button = {...props.attributes.button, ...attributes};
 								props.setAttributes({button});
 							}}
 						/>

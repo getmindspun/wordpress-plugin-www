@@ -3,27 +3,25 @@ import classNames from 'classnames';
 import {RichText} from '@wordpress/block-editor';
 
 import {ComponentProps} from './types';
-import StylePortal from './StylePortal';
+import Style from './Style';
 
 const Heading = (props: ComponentProps) => {
-	const {text, ...style} = props.attributes.heading;
-
 	const className = classNames('ad-heading', {
 		'ad-focused': props.focused === 'heading'
 	});
 
 	if (!props.edit) {
 		return (
-			<RichText.Content tagName="h2" value={ text } />
+			<RichText.Content className={className} tagName="h2" value={ props.attributes.heading.text } />
 		);
 	}
 
 	return (
 		<>
-			<StylePortal
-				instanceId={props.attributes.instanceId}
-				attributes={style}
+			<Style
+				blockId={props.attributes.blockId}
 				selector={'.ad-heading'}
+				attributes={props.attributes.heading}
 			/>
 			<RichText
 				className={className}
@@ -32,7 +30,7 @@ const Heading = (props: ComponentProps) => {
 					const heading = {...props.attributes.heading, text};
 					props.setAttributes!( {heading})
 				}}
-				value={ text }
+				value={ props.attributes.heading.text }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 			/>
 		</>

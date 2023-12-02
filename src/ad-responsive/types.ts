@@ -4,7 +4,7 @@ import React, {CSSProperties} from 'react';
 
 export type Props = {
 	attributes: {
-		instanceId: string,
+		blockId: string,
 		variation: 'default' | 'left' | 'simple';
 		heading: Pick<CSSProperties, 'color' | 'margin' | 'padding'> & {
 			text: string,
@@ -35,7 +35,9 @@ export type Props = {
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
 }
 
-export interface ComponentProps extends Props {
+export interface ComponentProps {
+	attributes: Props['attributes'];
+	setAttributes?: Props['setAttributes'];
 	edit?: boolean;
 	focused?: string|null;
 }
