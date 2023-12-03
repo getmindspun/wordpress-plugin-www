@@ -43,5 +43,5 @@ export interface ComponentProps {
 }
 
 export interface ComponentPropsWithChildren extends ComponentProps {
-	children: React.ReactNode
+	children?: React.ReactNode
 }

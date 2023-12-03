@@ -6,6 +6,7 @@
 	"title": "Responsive Ad",
 	"category": "ads",
 	"description": "Fully responsive inline ad.",
+	"icon": "money",
 	"example": {},
 	"textdomain": "www",
 	"editorScript": ["wpx","file:./index.js"],
@@ -69,7 +70,7 @@
 			"selector": ".ad-img"
 		},
 		"variation": {
-			"enum": ["default", "left"],
+			"enum": ["default", "left", "simple"],
 			"default": "default"
 		}
 	}

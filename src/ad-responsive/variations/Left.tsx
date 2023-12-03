@@ -15,9 +15,9 @@ const Left = (props: {
 		<>
 			<Image attributes={props.attributes} edit={!save} focused={props.focused}/>
 			<div className="ad-main">
-				<Icon attributes={props.attributes} focused={props.focused} />
+				<Icon {...props} />
 				<Content {...props}>
-					<CTA {...props.attributes} focused={props.focused}/>
+					<CTA {...props}/>
 				</Content>
 			</div>
 		</>

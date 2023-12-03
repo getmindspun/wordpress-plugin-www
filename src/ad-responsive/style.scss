@@ -32,6 +32,10 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
+
+				img {
+					max-width: fit-content;
+				}
 			}
 
 			.ad-content {
@@ -93,6 +97,11 @@
 
 	/* Variations */
 	&.ad-variation-simple {
+		.ad-container .ad-main .ad-content {
+			h3 {
+				margin: 0;
+			}
+		}
 		.ad-cta {
 			width: fit-content;
 		}

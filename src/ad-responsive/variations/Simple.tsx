@@ -11,10 +11,10 @@ const Simple = (props: {
 	return (
 		<>
 			<div className="ad-main">
-				<Icon attributes={props.attributes} focused={props.focused} />
+				<Icon {...props} />
 				<Content {...props} />
 			</div>
-			<CTA {...props.attributes} focused={props.focused}/>
+			<CTA {...props}/>
 		</>
 	);
 }
