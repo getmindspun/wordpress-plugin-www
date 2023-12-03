@@ -38,11 +38,13 @@
 				}
 			}
 
-			.ad-content {
+			div:has(.ad-content) {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
+			}
 
+			.ad-content {
 				h2 {
 					margin: 0 0 10px;
 					font-size: 28px;
@@ -105,6 +107,11 @@
 		.ad-cta {
 			width: fit-content;
 		}
+	}
+
+	/* Direction */
+	.ad-row-reverse {
+		flex-direction: row-reverse;
 	}
 }
 

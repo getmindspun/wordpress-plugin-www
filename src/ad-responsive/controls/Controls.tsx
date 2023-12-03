@@ -30,7 +30,6 @@ const Controls = (props: Props & {
 						options={ [
 							{ label: 'Default', value: 'default' },
 							{ label: 'Simple', value: 'simple' },
-							{ label: 'Left Image', value: 'left' },
 						] }
 						value={props.attributes.variation}
 						onChange={text => props.setAttributes({variation: text as Props['attributes']['variation']})}

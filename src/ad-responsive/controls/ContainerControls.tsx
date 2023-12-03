@@ -1,7 +1,9 @@
-import React from 'react';
+import {ToggleControl} from '@wordpress/components';
+
 import {BackgroundImageControl, ControlGroup,} from 'wpx';
 
 import {Props} from '../types';
+import React from 'react';
 
 const ContainerControls = (props: Props & {
 	setFocused: (value: string|null) => void;
@@ -27,6 +29,14 @@ const ContainerControls = (props: Props & {
 					const container = {...props.attributes.container, ...attributes}
 					props.setAttributes({container})
 				}}
+			/>
+			<ToggleControl
+				label="Show content reversed"
+				checked={ props.attributes.container.reverse }
+				onChange={ (reverse) => {
+					const container = {...props.attributes.container, reverse};
+					props.setAttributes({container});
+				} }
 			/>
 		</ControlGroup>
 	);

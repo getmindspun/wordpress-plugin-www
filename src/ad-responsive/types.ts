@@ -5,7 +5,7 @@ import React, {CSSProperties} from 'react';
 export type Props = {
 	attributes: {
 		blockId: string,
-		variation: 'default' | 'left' | 'simple';
+		variation: 'default' | 'simple' | 'images';
 		heading: Pick<CSSProperties, 'color' | 'margin' | 'padding'> & {
 			text: string,
 		},
@@ -19,7 +19,9 @@ export type Props = {
 			colorHover: CSSProperties['color'],
 			backgroundColorHover: CSSProperties['backgroundColor']
 		}
-		container: Pick<CSSProperties, 'backgroundColor' | 'backgroundImage' | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'>
+		container: Pick<CSSProperties, 'backgroundColor' | 'backgroundImage' | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'> & {
+			reverse: boolean | undefined
+		}
 		content: Pick<CSSProperties, 'color'> & {
 			align: BlockAlign | undefined
 		}

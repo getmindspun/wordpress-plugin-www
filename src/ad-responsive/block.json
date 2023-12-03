@@ -54,23 +54,17 @@
 		"icon": {
 			"type": "object",
 			"default": {
-				"url": "",
-				"id": "",
-				"alt": "Mindspun Icon"
 			},
 			"selector": ".ad-icon"
 		},
 		"media": {
 			"type": "object",
 			"default": {
-				"url": "",
-				"id": "",
-				"alt": "Mindspun Image"
 			},
 			"selector": ".ad-img"
 		},
 		"variation": {
-			"enum": ["default", "left", "simple"],
+			"enum": ["default", "simple", "images"],
 			"default": "default"
 		}
 	}
