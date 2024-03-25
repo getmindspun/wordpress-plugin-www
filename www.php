@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Mindspun Block Ads
- * Description:       Easily create inline advertisements for your blog using WordPress blocks.
+ * Plugin Name:       www
+ * Description:       Companion plugin for our theme.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
@@ -15,28 +15,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-function www_block_init() {
-	foreach ( scandir( __DIR__ . '/build' ) as $name ) {
-		if ( ! in_array( $name, array( '..', '.' ) ) ) {
-			register_block_type( __DIR__ . '/build/' . $name );
-		}
-	}
 
-}
-add_action( 'init', 'www_block_init' );
-
-/* Custom Block Editor category for ads. */
-/* Blocks Categories */
 add_filter(
-	'block_categories_all',
-	function ( $categories ) {
-		$category = array(
-			'slug'  => 'ads',
-			'title' => 'Ads',
-		);
+    'redirect_canonical',
+    function ( $redirect_url, $requested_url ) {
+        error_log( $requested_url );
+        if ( is_404() ) {
+            return false;
+        }
+        return $redirect_url;
+    },
+    999,
+    2
+);
 
-		$result = array($category) + $categories;
-		error_log(print_r($result, true));
-		return $result;
-	}
+// https://support.google.com/webmasters/thread/253569816?hl=en&msgid=255920309
+// https://typerocket.com/disable-wordpress-automatic-or-random-redirect-guessing-of-404s/
+add_filter(
+    'do_redirect_guess_404_permalink',
+    function () {
+        error_log( 'do_redirect_guess_404_permalink' );
+        return false;
+    },
+    1,
+    0
+);
+
+add_filter(
+    'strict_redirect_guess_404_permalink',
+    function () {
+        error_log( 'strict_redirect_guess_404_permalink' );
+        return true;
+    },
+    1,
+    0
 );
