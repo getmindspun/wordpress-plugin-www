@@ -5,6 +5,7 @@ import {ControlGroup} from 'wpx';
 import {Props} from '../types';
 
 const HeadingControls = (props: Props & {
+	focused: string | null;
 	setFocused: (value: string|null) => void;
 }) => {
 	return (
@@ -16,15 +17,19 @@ const HeadingControls = (props: Props & {
 				props.setAttributes({heading});
 			}}
 			options={{
-				color: true,
+				color: {responsive: true},
 				fontSize: true,
-				padding: true,
-				margin: true,
+				padding: {responsive: true},
+				margin: {responsive: true},
 				letterCase: true,
 				textAlign: {responsive: true}
 			}}
 			onMouseEnter={() => props.setFocused('heading')}
-			onMouseLeave={() => props.setFocused( null )}
+			onMouseLeave={() => {
+				props.setFocused( null );
+				console.log('heading leave');
+			}}
+			initialOpen={props.focused === 'heading'}
 		/>
 	);
 }

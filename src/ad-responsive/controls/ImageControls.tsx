@@ -1,9 +1,10 @@
 import {Props} from '../types';
-import ImageWidthControl from '../../_common/controls/ImageWidthControl';
-import {BorderControl, ContainerContents, ContainerControl, MediaControl} from '../../../../../wpx';
+import {
+	ControlGroup, Media,
+	MediaControl,
+	ImageScaleControl,
+} from 'wpx';
 import React from 'react';
-import ContainerControls from './ContainerControls';
-import {RadioControl} from '@wordpress/components';
 
 const ImageControls = (props: Props & {
 	setFocused: (value: string | null) => void;
@@ -16,7 +17,7 @@ const ImageControls = (props: Props & {
 					url: undefined,
 					alt: undefined,
 					width: undefined,
-					height: undefined,
+					height: undefined
 				}
 			});
 			return;
@@ -33,63 +34,43 @@ const ImageControls = (props: Props & {
 	};
 
 	return (
-		<ContainerControl
+		<ControlGroup
 			title={'Image'}
+			attributes={props.attributes.media}
+			setAttributes={value => {
+				const media = {...props.attributes.media, ...(value as Media)}
+				props.setAttributes({media});
+			}}
 			onMouseEnter={() => props.setFocused('image')}
 			onMouseLeave={() => props.setFocused(null)}
+			options={{
+				padding: {responsive: true},
+				margin: {responsive: true},
+				border: {responsive: true}
+			}}
 		>
-			<ContainerContents>
-				<MediaControl
-					title={'Image'}
-					attributes={props.attributes.media}
-					setAttributes={media => {
-						setImageAttributes(media as unknown as Props['attributes']['media']);
-					}}
-					onMouseEnter={() => {
-						props.setFocused('image');
-					}}
-					onMouseLeave={() => {
-						props.setFocused(null);
-					}}
-				>
-					<RadioControl
-						label="Show image"
-						help="When should the image be shown?"
-						selected={props.attributes.media.show || 'always'}
-						options={[
-							{label: 'Always', value: 'always'},
-							{label: 'Desktop Only', value: 'desktop'},
-							{label: 'Never', value: 'never'},
-						]}
-						onChange={(show) => {
-							const media = {...props.attributes.media, show: show as 'always' | 'desktop' | 'never'}
-							props.setAttributes({media});
-						}}
-					/>
-					<ImageWidthControl
-						title={'Width'}
-						value={props.attributes.media.scaledWidth}
-						onChange={scaledWidth => {
-							const media = {...props.attributes.media, scaledWidth};
-							props.setAttributes({media});
-						}}
-					/>
-					<BorderControl
-						title="Border"
-						value={props.attributes.media}
-						onChange={value => {
-							const media = {...props.attributes.media, ...value}
-							props.setAttributes({media});
-						}}
-						radius={props.attributes.media.borderRadius}
-						onRadiusChange={borderRadius => {
-							const media = {...props.attributes.media, borderRadius}
-							props.setAttributes({media});
-						}}
-					/>
-				</MediaControl>
-			</ContainerContents>
-		</ContainerControl>
+			<MediaControl
+				title={' '}
+				attributes={{
+					...props.attributes.media,
+					width: props.attributes.media.mediaWidth,
+					height: props.attributes.media.mediaHeight,
+
+				}}
+				setAttributes={media => {
+					setImageAttributes(media as unknown as Props['attributes']['media']);
+				}}
+			/>
+			<ImageScaleControl
+				label={'Width'}
+				width={props.attributes.media.mediaWidth}
+				height={props.attributes.media.mediaHeight}
+				attributes={props.attributes.media}
+				setAttributes={attributes => {
+					props.setAttributes({media: {...props.attributes.media, ...attributes}})
+				}}
+			/>
+		</ControlGroup>
 	);
 }
 

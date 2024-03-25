@@ -1,5 +1,5 @@
 import {
-	BlockAlignResponsiveControl,
+	BlockAlignControl,
 	ColorControl,
 	ColorsGroup,
 	ContainerContents,
@@ -18,20 +18,7 @@ const ContentControls = (props: Props & {
 			onMouseLeave={() => props.setFocused(null)}
 		>
 			<ContainerContents>
-				<ColorsGroup>
-					<ColorControl
-						title={ 'Color' }
-						value={ props.attributes.content.color }
-						onChange={ (color: string | undefined) => {
-							/* Intentionally set the color to the empty string when undefined
-							 * otherwise setAttributes won't recognize it.
-							 */
-							const content = {...props.attributes.content, color: color ? color : ''}
-							props.setAttributes({content});
-						} }
-					/>
-				</ColorsGroup>
-				<BlockAlignResponsiveControl
+				<BlockAlignControl
 					label={'Alignment'}
 					options={['left', 'center', 'right', 'full']}
 					attributes={props.attributes.content}

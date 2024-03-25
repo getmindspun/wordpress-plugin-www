@@ -16,8 +16,8 @@ const TaglineControls = (props: Props & {
 			options={{
 				color: true,
 				fontSize: true,
-				padding: true,
-				margin: true,
+				padding: {responsive: true},
+				margin: {responsive: true},
 				letterCase: true,
 				textAlign: {responsive: true}
 			}}

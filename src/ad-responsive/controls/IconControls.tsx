@@ -1,20 +1,23 @@
 import {Props} from '../types';
-import ImageWidthControl from '../../_common/controls/ImageWidthControl';
-import {BorderControl, ContainerContents, ContainerControl, MediaControl} from '../../../../../wpx';
+import {
+	ControlGroup, Media,
+	MediaControl,
+	ImageScaleControl,
+} from 'wpx';
 import React from 'react';
 
 const IconControls = (props: Props & {
 	setFocused: (value: string | null) => void;
 }) => {
-	const setIconAttributes = (icon: Props['attributes']['icon']) => {
+	const setIconAttributes = (icon: Partial<Media>) => {
 		if (!icon || !icon.url) {
 			props.setAttributes({
 				icon: {
 					...props.attributes.icon,
 					url: undefined,
 					alt: undefined,
-					width: undefined,
-					height: undefined
+					mediaWidth: undefined,
+					mediaHeight: undefined
 				}
 			});
 			return;
@@ -24,55 +27,50 @@ const IconControls = (props: Props & {
 				...props.attributes.icon,
 				url: icon.url,
 				alt: icon.alt,
-				width: icon.width,
-				height: icon.height
+				mediaWidth: icon.width,
+				mediaHeight: icon.height
 			}
 		});
 	};
 
 	return (
-		<ContainerControl
+		<ControlGroup
 			title={'Icon'}
+			attributes={props.attributes.icon}
+			setAttributes={value => {
+				const icon = {...props.attributes.icon, ...(value as Media)}
+				props.setAttributes({icon});
+			}}
 			onMouseEnter={() => props.setFocused('icon')}
 			onMouseLeave={() => props.setFocused(null)}
+			options={{
+				padding: {responsive: true},
+				margin: {responsive: true},
+				border: {responsive: true}
+			}}
 		>
-			<ContainerContents>
-				<MediaControl
-					attributes={props.attributes.icon}
-					setAttributes={icon => {
-						setIconAttributes(icon as unknown as Props['attributes']['icon']);
-					}}
-					onMouseEnter={() => {
-						props.setFocused('icon');
-					}}
-					onMouseLeave={() => {
-						props.setFocused(null);
-					}}
-				>
-					<ImageWidthControl
-						title={'Width'}
-						value={props.attributes.icon.scaledWidth}
-						onChange={scaledWidth => {
-							const icon = {...props.attributes.icon, scaledWidth};
-							props.setAttributes({icon});
-						}}
-					/>
-					<BorderControl
-						title="Border"
-						value={props.attributes.icon}
-						onChange={value => {
-							const icon = {...props.attributes.icon, ...value}
-							props.setAttributes({icon});
-						}}
-						radius={props.attributes.icon.borderRadius}
-						onRadiusChange={borderRadius => {
-							const icon = {...props.attributes.icon, borderRadius}
-							props.setAttributes({icon});
-						}}
-					/>
-				</MediaControl>
-			</ContainerContents>
-		</ContainerControl>
+			<MediaControl
+				title={' '}
+				attributes={{
+					...props.attributes.icon,
+					width: props.attributes.icon.mediaWidth,
+					height: props.attributes.icon.mediaHeight,
+
+				}}
+				setAttributes={icon => {
+					setIconAttributes(icon);
+				}}
+			/>
+			<ImageScaleControl
+				label={'Width'}
+				width={props.attributes.icon.mediaWidth}
+				height={props.attributes.icon.mediaHeight}
+				attributes={props.attributes.icon}
+				setAttributes={attributes => {
+					props.setAttributes({icon: {...props.attributes.icon, ...attributes}})
+				}}
+			 />
+		</ControlGroup>
 	);
 }
 

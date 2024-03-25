@@ -1,37 +1,46 @@
-import {Media} from '../_common/controls/MediaControl';
-import {BlockAlign} from 'wpx';
+import {BlockAlign, BlockCSSProperties, Media} from 'wpx';
 import React, {CSSProperties} from 'react';
 
 export type Props = {
 	attributes: {
 		blockId: string,
 		variation: 'default' | 'simple' | 'images';
-		heading: Pick<CSSProperties, 'color' | 'margin' | 'padding'> & {
+		cta: string,
+		heading: BlockCSSProperties & {
 			text: string,
 		},
-		tagline: Pick<CSSProperties, 'color'> & {
+		tagline: BlockCSSProperties & {
 			text: string,
 		}
-		button: Pick<CSSProperties, 'color' | 'backgroundColor'> & {
+		button: BlockCSSProperties & {
 			text: string,
-			link: string,
 			align: BlockAlign,
 			colorHover: CSSProperties['color'],
 			backgroundColorHover: CSSProperties['backgroundColor']
 		}
-		container: Pick<CSSProperties, 'backgroundColor' | 'backgroundImage' | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'> & {
-			reverse: boolean | undefined
+		container: BlockCSSProperties & {
+			reversed: boolean | undefined
 		}
-		content: Pick<CSSProperties, 'color'> & {
+		content: BlockCSSProperties & {
 			align: BlockAlign | undefined
 		}
-		icon: Media & Pick<CSSProperties, | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'> & {
+		icon: BlockCSSProperties & {
 			show: 'always' | 'desktop' | 'never';
+			url: Media['url'],
+			alt: Media['alt'],
+			mediaWidth: Media['width'];
+			mediaHeight: Media['height'];
 			scaledWidth: number | undefined
+			scaledHeight: number | undefined
 		};
-		media: Media & Pick<CSSProperties, | 'borderTop' | 'borderRight' | 'borderBottom' | 'borderLeft' | 'borderRadius'> & {
+		media: Media & BlockCSSProperties & {
 			show: 'always' | 'desktop' | 'never';
+			url: Media['url'],
+			alt: Media['alt'],
+			mediaWidth: Media['width'];
+			mediaHeight: Media['height'];
 			scaledWidth: number | undefined
+			scaledHeight: number | undefined
 		};
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void

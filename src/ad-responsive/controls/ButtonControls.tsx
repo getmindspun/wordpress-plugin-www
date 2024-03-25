@@ -1,7 +1,7 @@
 import {__experimentalInputControl as InputControl} from '@wordpress/components';
 
 import {
-	BlockAlignResponsiveControl,
+	BlockAlignControl,
 	ColorsGroup,
 	ColorControl,
 	ContainerContents,
@@ -33,16 +33,7 @@ const ButtonControls = (props: Props & {
 								props.setAttributes({button});
 							}}
 						/>
-						<InputControl
-							label="Button Link"
-							labelPosition="top"
-							value={props.attributes.button.link}
-							onChange={(link: string | undefined) => {
-								const button = {...props.attributes.button, link: link || '#'};
-								props.setAttributes({button});
-							}}
-						/>
-						<BlockAlignResponsiveControl
+						<BlockAlignControl
 							label={'Alignment'}
 							options={['left', 'center', 'right', 'full']}
 							attributes={props.attributes.button}
@@ -51,22 +42,31 @@ const ButtonControls = (props: Props & {
 								props.setAttributes({button});
 							}}
 						/>
-						<ColorsGroup>
+						<ColorsGroup isResponsive={true}>
 							<ColorControl
-								title={ 'Color' }
-								value={ props.attributes.button.color }
-								onChange={ color => {
-									const button = {...props.attributes.button, color}
+								label={ 'Color' }
+								attributes={ props.attributes.button }
+								setAttributes={attributes => {
+									const button = {...props.attributes.button, ...attributes};
 									props.setAttributes({button});
-								} }
+								}}
+								isResponsive={true}
+								hideHeader={true}
 							/>
 							<ColorControl
-								title={ 'Background' }
-								value={ props.attributes.button.backgroundColor }
-								onChange={ backgroundColor => {
-									const button = {...props.attributes.button, backgroundColor}
-									props.setAttributes({button});
+								label={ 'Background' }
+								attributes={ {
+									color: props.attributes.button.backgroundColor,
+									tabletColor: props.attributes.button.tabletBackgroundColor,
+									mobileColor: props.attributes.button.mobileBackgroundColor,
+
 								} }
+								setAttributes={attributes => {
+									const button = {...props.attributes.button, ...attributes};
+									props.setAttributes({button});
+								}}
+								isResponsive={true}
+								hideHeader={true}
 							/>
 						</ColorsGroup>
 					</ContainerContents>
@@ -75,20 +75,38 @@ const ButtonControls = (props: Props & {
 					<ContainerContents>
 						<ColorsGroup>
 							<ColorControl
-								title={ 'Color' }
-								value={ props.attributes.button.colorHover }
-								onChange={ colorHover => {
-									const button = {...props.attributes.button, colorHover}
-									props.setAttributes({button});
+								label={ 'Color' }
+								attributes={ {
+									color: props.attributes.button.colorHover,
+									tabletColor: props.attributes.button.tabletColorHover,
+									mobileColor: props.attributes.button.mobileColorHover,
 								} }
+								setAttributes={attributes => {
+									const button = {
+										...props.attributes.button,
+										colorHover: attributes.color,
+										mobileColorHover: attributes.mobileColor,
+										tabletColorHover: attributes.tabletColor,
+									};
+									props.setAttributes({button});
+								}}
 							/>
 							<ColorControl
-								title={ 'Background' }
-								value={ props.attributes.button.backgroundColorHover }
-								onChange={ backgroundColorHover => {
-									const button = {...props.attributes.button, backgroundColorHover}
-									props.setAttributes({button});
+								label={ 'Background' }
+								attributes={ {
+									color: props.attributes.button.backgroundColorHover,
+									tabletColor: props.attributes.button.tabletBackgroundColorHover,
+									mobileColor: props.attributes.button.mobileBackgroundColorHover,
 								} }
+								setAttributes={attributes => {
+									const button = {
+										...props.attributes.button,
+										backgroundColorHover: attributes.color,
+										mobileBackgroundColorHover: attributes.mobileColor,
+										tabletBackgroundColorHover: attributes.tabletColor,
+									};
+									props.setAttributes({button});
+								}}
 							/>
 						</ColorsGroup>
 					</ContainerContents>

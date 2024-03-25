@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Style from './Style';
 
 const CTA = (props: ComponentProps) => {
+	const cta = props.attributes.cta ? props.attributes.cta : 'https://www.mindspun.com';
 	const className = classNames('ad-cta', {
 		'ad-focused': props.focused === 'button'
 	})
@@ -15,7 +16,7 @@ const CTA = (props: ComponentProps) => {
 				attributes={props.attributes.button}
 			/>}
 			<div className={className}>
-				<a className={'ad-btn ad-btn-dark'} href={props.attributes.button.link}>{props.attributes.button.text}</a>
+				<a className={'ad-btn ad-btn-dark'} href={cta}>{props.attributes.button.text}</a>
 			</div>
 		</>
 	);

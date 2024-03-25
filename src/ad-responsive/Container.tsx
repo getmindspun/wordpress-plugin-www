@@ -5,7 +5,7 @@ import Style from './Style';
 const Container = (props: ComponentPropsWithChildren) => {
 	const className = classNames('ad-container', {
 		'ad-focused': props.focused === 'container',
-		'ad-row-reverse': !!props.attributes.container.reverse,
+		'ad-row-reverse': !!props.attributes.container.reversed,
 	});
 
 	return (

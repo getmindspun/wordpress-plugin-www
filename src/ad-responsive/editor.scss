@@ -11,7 +11,7 @@
 	}
 }
 
-.wp-block-www-ad-responsive-controls {
+.block-editor-block-inspector .wp-block-www-ad-responsive-controls {
 	.cta-button-controls {
 		padding: 1em;
 	}
@@ -34,5 +34,9 @@
 
 	.wpx--container-contents .www-media-control .wpx--container-control {
 		border: 1px solid #e0e0e0;
+	}
+
+	.components-base-control {
+		margin-bottom: 1em;
 	}
 }

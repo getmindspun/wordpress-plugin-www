@@ -11,7 +11,7 @@ const Image = (props: ComponentProps) => {
 		return null;
 	}
 
-	const className = classNames('ad-img', `ad-show-${show ? show : 'always'}`, {
+	const className = classNames('ad-img', `wp-image-${props.attributes.blockId}`, `ad-show-${show ? show : 'always'}`, {
 		'ad-focused': props.focused === 'image'
 	})
 	const scaledHeight = scaledWidth && width && height ? Math.round(scaledWidth * height / width) : undefined;
@@ -24,19 +24,17 @@ const Image = (props: ComponentProps) => {
 				attributes={style}
 			/>}
 
-			<div className={className}>
-				{!!url ?
-					<img
-						id={id ? id : undefined}
-						src={url}
-						alt={alt}
-						width={width}
-						height={height}
-						style={{width: scaledWidth, height: scaledHeight}}
-					/> :
-					<NoImage/>
-				}
-			</div>
+			{!!url ?
+				<img
+					className={className}
+					src={url}
+					alt={alt}
+					width={width}
+					height={height}
+					style={{width: scaledWidth, height: scaledHeight}}
+				/> :
+				<NoImage className={className}/>
+			}
 		</>
 	);
 }

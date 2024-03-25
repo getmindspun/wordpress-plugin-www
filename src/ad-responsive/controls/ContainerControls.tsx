@@ -32,9 +32,9 @@ const ContainerControls = (props: Props & {
 			/>
 			<ToggleControl
 				label="Show content reversed"
-				checked={ props.attributes.container.reverse }
-				onChange={ (reverse) => {
-					const container = {...props.attributes.container, reverse};
+				checked={ !!props.attributes.container.reversed }
+				onChange={ (reversed) => {
+					const container = {...props.attributes.container, reversed};
 					props.setAttributes({container});
 				} }
 			/>

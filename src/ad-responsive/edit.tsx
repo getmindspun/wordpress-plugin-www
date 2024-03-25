@@ -25,7 +25,7 @@ export default function Edit(props: Props & { clientId: string }) {
 
 	return (
 		<>
-			<Controls {...props} setFocused={setFocused}/>
+			<Controls {...props} focused={focused} setFocused={setFocused}/>
 			<div {...blockProps} id={`wpx-${blockId}`}>
 				<Ad {...props} focused={focused} edit={true}/>
 			</div>
